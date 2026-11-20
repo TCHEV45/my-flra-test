@@ -1,0 +1,16 @@
+Copyright (c) 2026. All rights reserved.
+
+This software (the Crane FLRA App, including the Barnhart Crane Lift FLRA, Lift Calc,
+Suncor Mobile Crane SWP and Barnhart On Site Crane Movement FLRA forms, its crane library
+and all source code, images and files in this repository) is the property of its author.
+
+No permission is granted to copy, modify, merge, publish, distribute, sublicense, sell,
+or create derivative works of this software, in whole or in part, without the prior
+written permission of the author. Viewing this repository or using the published app
+does not grant any licence to its code.
+
+Barnhart, Suncor and Syncrude names, logos and form layouts are the property of their
+respective owners and are not claimed by this notice.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND. Lift calculations and
+crane library figures are aids only; always confirm against the crane's load chart and LMI.

@@ -1,0 +1,15 @@
+{
+  "name": "FLRA TEST",
+  "short_name": "FLRA TEST",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#1e3a8a",
+  "theme_color": "#1e3a8a",
+  "description": "Fillable Crane Lift Field Level Risk Assessment with lift calculation.",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}
