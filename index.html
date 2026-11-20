@@ -12928,8 +12928,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.64';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.65';
 const NOTES=[
+['3.65',['New: Back up and restore on the home screen. “Save a backup file” puts everything on this device – FLRAs and lift calcs with signatures, saved hazards, saved crane configurations, sites and map pictures – into one file you can keep in Files, Drive or email','“Restore from a backup file” adds a backup back into the app on any device. Nothing already there is removed, and when an FLRA is in both, the newer copy is kept'],0],
 ['3.64',['The “Share this app” QR code and link now always point to the secure address of this app'],0],
 ['3.63',['A device linked before the simpler sync is asked once whether it is your main device or a borrowed one'],0],
 ['3.63',['Sync in the main app is now manual with a main device and borrowed devices, and the sync service only holds your copy while a device is linked (details under 3.61 and 3.59)'],2],
@@ -14291,6 +14292,11 @@ function render(keep){
     <p class="note">FLRAs and lift calcs are stored on this device only. Use PDF to save or share a completed FLRA, or QR to let another phone or tablet scan it – for a PDF copy, or to add it to the app on that device and keep working on it. Duplicate starts a new FLRA from an old one with today's date; signatures, initials, break reviews and job completion are cleared, so re-check every answer for the new job. On iPhone / iPad: Share → Add to Home Screen to install.</p>
     <p class="note">Fillable version of the Crane Lift Field Level Risk Assessment, HSE001D (01/25) Rev.16. The lift calculation is an aid – always confirm against the crane's load chart and LMI.</p>
     <p class="note" style="font-weight:600">App © 2026. All rights reserved. No copying, redistributing or reselling the app or its code without written permission. Barnhart, Suncor and Syncrude names, logos and form layouts belong to their owners.</p>
+    <div class="card"><h2>Back up and restore</h2>
+    <p class="note" style="margin-top:0">A backup file holds everything in this app on this device: FLRAs and lift calcs with signatures, saved hazards, saved crane configurations, sites and map pictures. Keep the file in Files, Drive or email.</p>
+    <button class="btn wide" id="bkSave">⬇ Save a backup file</button>
+    <button class="btn sec wide" id="bkLoad">⬆ Restore from a backup file</button><input type="file" id="bkFile" class="hide">
+    <p class="note">Restoring adds the backup to what is already here – nothing is removed. If an FLRA is in both, the newer copy is kept.</p></div>
     <div class="card"><h2>Copy everything to another device</h2>
     <label class="f" style="display:flex;gap:8px;align-items:center;margin:6px 0"><input type="checkbox" id="caR" checked style="width:22px;height:22px"> <span style="font-size:15px;color:var(--ink);margin:0">FLRAs and lift calcs (${list.length})</span></label>
     <label class="f" style="display:flex;gap:8px;align-items:center;margin:6px 0"><input type="checkbox" id="caH" checked style="width:22px;height:22px"> <span style="font-size:15px;color:var(--ink);margin:0">My saved hazards (${libLoad().length})</span></label>
@@ -14300,6 +14306,7 @@ function render(keep){
     <div class="card" style="text-align:center"><h2>Share this app</h2><canvas id="appqr" width="660" height="660" style="width:230px;height:230px;max-width:100%" role="img" aria-label="QR code with the link to this app"></canvas><div class="note" id="appurl" style="word-break:break-all"></div><p class="note">Scan with a phone or tablet camera to open the app, then add it to the home screen. It arrives blank – none of your FLRAs are shared.</p></div>`;
     appQR();
     $('#caBtn').onclick=sendAll;
+    $('#bkSave').onclick=bkSave;$('#bkLoad').onclick=()=>$('#bkFile').click();$('#bkFile').onchange=bkPick;
     $('#scanBtn').onclick=startScan;
     
     $('#newBtn').onclick=()=>{const f=XF[homeTab]?synNew(homeTab):{id:'L'+Date.now(),updated:Date.now(),v:{date:today(),units:'lbs',rev:16}};if(homeTab==='calc')f.t='calc';list.push(f);saveList();open(f)};
@@ -15509,6 +15516,40 @@ function gCard(){if(!GATEON||view!=='home'||homeTab==='maps'||!gSt||!gSt.m)retur
   $('#gNew').onclick=gMake;$('#gLock').onclick=()=>{if(confirm('Lock the test app on this device? The master code is needed to open it again.')){gSt=null;gSave();gCheck()}}}
 const gRender0=render;render=function(k){gRender0(k);try{gCard()}catch(e){}};
 function gBoot(){if(!GATEON)return;gSt=gLoad();gCheck();if(gOpen())render();setInterval(gCheck,30000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')gCheck()})}
+/* ---------- backup file: everything on this device in one file; restoring merges it back in ---------- */
+const BKAPP='flra-backup';
+function bkB64(buf){const u=new Uint8Array(buf);let s='';for(let i=0;i<u.length;i+=32768)s+=String.fromCharCode.apply(null,u.subarray(i,i+32768));return btoa(s)}
+function bkBuf(b){const s=atob(b),u=new Uint8Array(s.length);for(let i=0;i<s.length;i++)u[i]=s.charCodeAt(i);return u.buffer}
+function bkPlural(n,w){return n+' '+w+(n===1?'':'s')}
+async function bkMake(){saveList();let maps=[];
+  try{maps=((await mapTx('readonly',s=>s.getAll()))||[]).filter(x=>x&&x.id&&x.buf).map(x=>({id:x.id,site:x.site,name:x.name,type:x.type,size:x.size,added:x.added,bkey:x.bkey,b64:bkB64(x.buf)}))}catch(e){maps=[]}
+  return {app:BKAPP,ver:1,from:TESTAPP?'test':'main',build:BUILD,made:Date.now(),recs:list,lib:libLoad(),cranes:crLoad(),sites:sitesLoad(),maps}}
+async function bkSave(){const b=$('#bkSave');if(b)b.disabled=true;
+  try{const o=await bkMake(),txt=JSON.stringify(o),d=new Date(),p=n=>String(n).padStart(2,'0');
+    const base=(TESTAPP?'FLRA TEST backup ':'FLRA backup ')+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+p(d.getMinutes());
+    const what=[bkPlural(o.recs.length,'FLRA / lift calc'),bkPlural(o.lib.length,'saved hazard'),bkPlural(o.cranes.length,'crane configuration'),bkPlural(o.maps.length,'map')].join(', ');
+    for(const [ext,type] of [['.json','application/json'],['.txt','text/plain']]){
+      try{const file=new File([txt],base+ext,{type});if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:base});toast('Backup made: '+what,4000);return}}catch(e){if(e&&e.name==='AbortError')return}}
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'application/json'}));a.download=base+'.json';document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},4000);
+    toast('Backup saved – look in Files / Downloads. '+what,4500)}
+  catch(e){toast('Could not make the backup file',3000)}finally{if(b)b.disabled=false}}
+async function bkRestore(o){let nR=0,nU=0,nH=0,nC=0,nS=0,nM=0;
+  (Array.isArray(o.recs)?o.recs:[]).forEach(r=>{if(!r||!r.v||typeof r.v!=='object')return;const f={id:r.id||('L'+Date.now()+Math.floor(Math.random()*1000)),updated:r.updated||r.u||Date.now(),v:r.v};if(r.t==='calc'||XF[r.t])f.t=r.t;mig([f]);hzNorm(f.v);
+    const i=list.findIndex(x=>x.id===f.id);if(i<0){list.push(f);nR++}else if((f.updated||0)>(list[i].updated||0)){list[i]=f;nU++}});
+  if(nR||nU)saveList();
+  (Array.isArray(o.lib)?o.lib:[]).forEach(h=>{if(h&&libAdd({task:h.task||'',hazard:h.hazard||'',pre:h.pre||'',ctrl:h.ctrl||'',post:h.post||''})==='ok')nH++});
+  if(Array.isArray(o.cranes)){const a=crLoad();o.cranes.forEach(c=>{if(!c||!c.name||!c.d)return;const i=a.findIndex(x=>String(x.name).toLowerCase()===String(c.name).toLowerCase());if(i>=0){if(JSON.stringify(a[i].d)!==JSON.stringify(c.d)){a[i].d=c.d;nC++}}else{a.push({id:'C'+Date.now()+Math.floor(Math.random()*1000),name:c.name,d:c.d});nC++}});if(nC)crStore(a)}
+  if(Array.isArray(o.sites)){const a=sitesLoad();o.sites.forEach(n=>{n=String(n||'').trim().slice(0,60);if(n&&!a.includes(n)){a.push(n);nS++}});if(nS)sitesSave(a)}
+  if(Array.isArray(o.maps)&&o.maps.length){let have=[];try{have=(await mapTx('readonly',s=>s.getAllKeys()))||[]}catch(e){}
+    for(const x of o.maps){if(!x||!x.id||!x.b64||have.includes(x.id))continue;try{const buf=bkBuf(x.b64),rec={id:x.id,site:x.site,name:x.name,buf,type:x.type,size:buf.byteLength,added:x.added||Date.now()};if(x.bkey)rec.bkey=x.bkey;await mapTx('readwrite',s=>s.put(rec));nM++}catch(e){}}}
+  return {nR,nU,nH,nC,nS,nM}}
+async function bkPick(ev){const inp=ev.target,file=inp.files&&inp.files[0];inp.value='';if(!file)return;
+  let o=null;try{o=JSON.parse(await file.text())}catch(e){}
+  if(!o||o.app!==BKAPP){toast('That file is not an FLRA backup',3500);return}
+  try{const r=await bkRestore(o);cur=null;view='home';render();
+    const parts=[r.nR&&bkPlural(r.nR,'FLRA / lift calc')+' added',r.nU&&r.nU+' updated to the newer copy',r.nH&&bkPlural(r.nH,'saved hazard'),r.nC&&bkPlural(r.nC,'crane configuration'),r.nS&&bkPlural(r.nS,'site'),r.nM&&bkPlural(r.nM,'map')].filter(Boolean);
+    toast(parts.length?'Restored: '+parts.join(', '):'Everything in that backup is already on this device',6000)}
+  catch(e){toast('Could not restore that backup',3500)}}
 /* the QR “Copy everything to another device” card is only in the test app; in the main app sync does that job */
 const caRender0=render;render=function(k){caRender0(k);if(!TESTAPP){const c=$('#caBtn'),d=c&&c.closest('.card');if(d)d.remove()}};
 render();
