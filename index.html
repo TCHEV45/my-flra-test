@@ -15363,7 +15363,7 @@ function updNote(){let u=null;try{u=sessionStorage.getItem('flra.upd');sessionSt
 /* ---------- personal sync between devices (flra.pricedev.ca and test.pricedev.ca) ----------
    No sign-in: devices share one pairing code (QR). Everything is compressed and encrypted on the device
    (AES-GCM, key derived from the pairing code) before it is uploaded, so the database holds nothing readable. */
-const SYNCON=/^(flra|test)\.pricedev\.ca$/.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
+const SYNCON=/^((flra|test)\.pricedev\.ca|tchev45\.github\.io)$/.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
 const SYK='flra.sync.v1',SYB=window.SYNC_BASE||'https://firestore.googleapis.com/v1/projects/pricedev-2d1e9/databases/(default)/documents';
 let syS=null,syBusy=false,syT=0,syKey=null,syVid='',syMsg='',syErr='';
 function syLoad(){try{const o=JSON.parse(localStorage.getItem(SYK));return o&&o.s?o:null}catch(e){return null}}
