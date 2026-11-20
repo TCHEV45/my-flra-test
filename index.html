@@ -9,18 +9,18 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>FLRA TEST</title>
+<title>Barnhart Crane Lift FLRA</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1e3a8a">
+<meta name="theme-color" content="#7a1f1f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="FLRA TEST">
+<meta name="apple-mobile-web-app-title" content="Barnhart FLRA">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <style>
-:root{--acc:#1e3a8a;--line:#000;--bg:#f4f4f5;--ink:#18181b;--mut:#6b7280;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
+:root{--acc:#7a1f1f;--line:#000;--bg:#f4f4f5;--ink:#18181b;--mut:#6b7280;--ok:#15803d;--warn:#b45309;--bad:#b91c1c}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;overscroll-behavior-y:none}
 #ptr{height:0;overflow:hidden;display:flex;align-items:flex-end;justify-content:center;color:var(--mut);font-size:14px;text-align:center}
@@ -122,7 +122,7 @@ table.ramt td,table.ramt th{border:2px solid #000;padding:8px 2px}
 <div class="acts"><button class="btn sec" id="cfgCancel">Cancel</button><button class="btn" id="cfgSave">Save</button></div></div></div>
 <div class="modal hide" id="libm"><div class="box" style="max-height:88vh;display:flex;flex-direction:column"><b id="libt">My saved tasks, hazards and controls</b><div id="libl" style="overflow:auto;margin:8px 0;flex:1"></div><div class="acts"><button class="btn" id="libClose">Done</button></div></div></div>
 <div id="toast" class="hide" role="status" style="position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);background:#18181b;color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;z-index:30;max-width:90vw;text-align:center"></div>
-<div class="modal hide" id="scanm"><div class="box" style="text-align:center;max-height:96vh;overflow:auto"><b>Scan a QR code to add it here</b><div id="scanBox" style="overflow:hidden;border-radius:8px;margin:8px 0;background:#000"><video id="scanv" playsinline muted autoplay style="width:100%;max-height:52vh;display:block;object-fit:cover;transform-origin:center"></video></div><div class="seg" id="scanz" style="margin-bottom:6px"><button type="button" data-z="1">1×</button><button type="button" data-z="2">2×</button><button type="button" data-z="3">3×</button><button type="button" data-z="4">4×</button><button type="button" id="scanSw" class="hide" style="flex:2">Switch camera</button></div><div id="scanp" style="font-weight:700;margin:6px 0 4px"></div><div id="scanHelp" class="hide"><p class="note" id="scanHelpT" style="margin:0 0 6px;text-align:left"></p><button type="button" class="btn wide" id="scanAsk" style="margin:0 0 8px">Ask for the camera again</button></div><p class="note" id="scanBlur" style="margin:0 0 8px">Blurry? Move the camera further back and zoom in instead of getting closer – cameras cannot focus on something very near. If it stays blurry, try Switch camera.</p><button type="button" class="btn sec wide" id="scanShot" style="margin:0 0 8px">Camera not working? Take a photo of the code instead</button><input type="file" id="scanFile" accept="image/*" capture="environment" class="hide"><div class="acts"><button class="btn sec" id="scanCancel">Cancel</button></div></div></div>
+<div class="modal hide" id="scanm"><div class="box" style="text-align:center;max-height:96vh;overflow:auto"><b>Scan a QR code</b><div id="scanBox" style="overflow:hidden;border-radius:8px;margin:8px 0;background:#000"><video id="scanv" playsinline muted autoplay style="width:100%;max-height:52vh;display:block;object-fit:cover;transform-origin:center"></video></div><div class="seg" id="scanz" style="margin-bottom:6px"><button type="button" data-z="1">1×</button><button type="button" data-z="2">2×</button><button type="button" data-z="3">3×</button><button type="button" data-z="4">4×</button><button type="button" id="scanSw" class="hide" style="flex:2">Switch camera</button></div><div id="scanp" style="font-weight:700;margin:6px 0 4px"></div><div id="scanHelp" class="hide"><p class="note" id="scanHelpT" style="margin:0 0 6px;text-align:left"></p><button type="button" class="btn wide" id="scanAsk" style="margin:0 0 8px">Ask for the camera again</button></div><p class="note" id="scanBlur" style="margin:0 0 8px">Blurry? Move the camera further back and zoom in instead of getting closer – cameras cannot focus on something very near. If it stays blurry, try Switch camera.</p><button type="button" class="btn sec wide" id="scanShot" style="margin:0 0 8px">Camera not working? Take a photo of the code instead</button><input type="file" id="scanFile" accept="image/*" capture="environment" class="hide"><div class="acts"><button class="btn sec" id="scanCancel">Cancel</button></div></div></div>
 <div class="modal hide" id="bnm"><div class="box" style="max-height:88vh;overflow:auto;text-align:left"><div style="position:sticky;top:-18px;z-index:1;background:#fff;display:flex;align-items:center;gap:8px;margin-top:-18px;padding:18px 0 6px"><b id="bnTitle" style="flex:1"></b><button type="button" id="bnX2" aria-label="Close" style="flex:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font-size:20px;line-height:1;font-family:inherit">✕</button></div><div id="bnBody" style="font-size:15px"></div><button type="button" class="btn wide" id="bnUp" style="margin-top:12px">Check for updates</button><button type="button" class="btn sec wide" id="bnX" style="margin-top:8px">Close</button></div></div>
 <div class="modal hide" id="exm"><div class="box"><b>Save a copy</b><p class="note" style="margin:4px 0 10px">Same layout as the paper form. File name: <b id="exName"></b></p><button type="button" class="btn wide" id="exPdf">PDF – save to Files or share</button><button type="button" class="btn sec wide" id="exPic" style="margin-top:8px">Picture – save to gallery / Photos</button><button type="button" class="btn sec wide" id="exX" style="margin-top:8px">Cancel</button></div></div>
 <div class="modal hide" id="qrm"><div class="box" style="text-align:center;max-height:94vh;overflow:auto"><b>Scan to get a copy</b><canvas id="qrc" width="1080" height="1080" style="width:100%;max-width:440px;height:auto;display:block;margin:8px auto;background:#fff"></canvas><p class="note" id="qrg" style="margin:4px 0">To get a PDF: scan with any phone or tablet camera (that device needs internet). To add it to this app on another device: open the app there and tap “Scan a QR code to add one”, which works with no signal. Turn the screen brightness up if it will not scan.</p><div id="qrp" style="font-weight:700"></div><p class="note" id="qrn" style="color:#b45309"></p><button type="button" class="btn sec wide hide" id="qrSw" style="margin-bottom:8px"></button><div class="acts"><button class="btn" id="qrClose">Close</button></div></div></div>
@@ -12928,17 +12928,27 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=true;const BUILD='3.56';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.64';
 const NOTES=[
+['3.64',['The “Share this app” QR code and link now always point to the secure address of this app'],0],
+['3.63',['A device linked before the simpler sync is asked once whether it is your main device or a borrowed one'],0],
+['3.63',['Sync in the main app is now manual with a main device and borrowed devices, and the sync service only holds your copy while a device is linked (details under 3.61 and 3.59)'],2],
+['3.62',['“Copy everything to another device” by QR codes is removed from the main app. Use Sync to move your FLRAs, lift calcs, saved hazards and crane configurations between devices'],2],
+['3.62',['No change in the test app: “Copy everything to another device” stays here and is removed from the main app'],1],
+['3.61',['Sync is manual now: it only happens when you tap Sync now. There is a Sync now bar at the top of the home screen that shows when changes are waiting','Simpler sync: pick a main device, then other devices are “borrowed” – they just have Sync now and “Finished – sync and clear this device”'],0],
+['3.60',['Test app: a 6-digit access code is needed to open it. The master code unlocks a device for good and can make 24-hour access codes for other people'],1],
+['3.59',['Sync is only a pass-through now: when the last linked device stops syncing, your copy is removed from the sync service and everything stays saved on the device','“Stop syncing and clear this device” will not run on the only linked device, so nothing can be wiped for good by mistake']],
+['3.58',['Sync between devices is now in the main app as well as the test app','Main app: the Christina Lake SAGD site map with its location finder is now built in under Site maps']],
+['3.57',['Sync: new “Stop syncing and clear this device” for shared tablets – it syncs first, then removes your FLRAs, lift calcs, saved hazards and crane configurations from that device only. It will not clear if it cannot sync']],
 ['3.56',['Sync is now in this test app itself (test.pricedev.ca); the separate mytest address is retired'],1],
-['3.55',['New: “Sync between my devices” on the home screen – link your phone, tablet and laptop once with a pairing code and FLRAs, lift calcs, saved hazards and saved crane configurations stay the same on all of them. No sign-in; everything is encrypted on the device before it is uploaded'],1],
+['3.55',['New: “Sync between my devices” on the home screen – link your phone, tablet and laptop once with a pairing code and FLRAs, lift calcs, saved hazards and saved crane configurations stay the same on all of them. No sign-in; everything is encrypted on the device before it is uploaded']],
 ['3.54',['✕ button at the top right of the what\'s new box to close it']],
 ['3.53',['Crane library, from your own load charts: Grove RT765E-2 boom extension deductions (now complete), Grove RT890E 80 ton block weight (now complete), Grove RT760E line pull, boom lengths, blocks and extension deductions'],1],
 ['3.52',['QR scanner: the camera is asked for fresh every time you open the scanner and let go when you close it','If the camera does not start, the scanner now says why and what to change, with an “Ask for the camera again” button. If an iPad blocks the camera, set Settings › Apps › Safari › Camera to Ask','New: “Take a photo of the code instead” – works when the live camera is blocked or shows nothing','The scanner now notices a camera that opened but shows no picture, froze or stopped'],0],
-['3.51',['Site maps: every tag on the Christina Lake map was read again at a closer zoom. 314 locations now','Any tag with a digit or letter hidden, blurred or under a line on the photo is in the last group, “Check on the map – tag hard to read” (31 of them). Where there is a best reading it is still in the name, so search finds it','Added: MCC by West Pump, the east end of the 001 Rack, the north leg of the 002 Rack, two more exchanger skids on D Ave and three rack labels in FG Process and on H Ave'],1],
-['3.50',['Site maps: the Christina Lake SAGD Muster and Control Site Map is now built into the app under Cenovus Christina Lake South – nothing to add, just open it and tap “Find a location”. It opens with no signal'],1],
+['3.51',['Site maps: every tag on the Christina Lake map was read again at a closer zoom. 314 locations now','Any tag with a digit or letter hidden, blurred or under a line on the photo is in the last group, “Check on the map – tag hard to read” (31 of them). Where there is a best reading it is still in the name, so search finds it','Added: MCC by West Pump, the east end of the 001 Rack, the north leg of the 002 Rack, two more exchanger skids on D Ave and three rack labels in FG Process and on H Ave']],
+['3.50',['Site maps: the Christina Lake SAGD Muster and Control Site Map is now built into the app under Cenovus Christina Lake South – nothing to add, just open it and tap “Find a location”. It opens with no signal']],
 ['3.49',['Crane library removed from the main app – crane details are typed in as before','Anything already filled in from the crane library stays on your saved forms'],2],
-['3.49',['Site maps: Cenovus Christina Lake South now has a location finder for the Christina Lake SAGD Muster and Control Site Map. Add your photo of the map once, then tap “Find a location”','305 locations in groups: muster points, control areas and radio channels, buildings and work areas, ponds and flare stacks, BU buildings, tanks, vessels and other tagged equipment, pipe racks and roads. Search by name, tag or channel','Pick one and the map zooms to it and circles it in red. The map picture stays on your device – only the names and positions are in the app'],1],
+['3.49',['Site maps: Cenovus Christina Lake South now has a location finder for the Christina Lake SAGD Muster and Control Site Map. Add your photo of the map once, then tap “Find a location”','305 locations in groups: muster points, control areas and radio channels, buildings and work areas, ponds and flare stacks, BU buildings, tanks, vessels and other tagged equipment, pipe racks and roads. Search by name, tag or channel','Pick one and the map zooms to it and circles it in red. The map picture stays on your device – only the names and positions are in the app']],
 ['3.48',['Menu button (☰) at the top left of the home screen replaces the row of tabs','New: Site maps, starting with Cenovus Christina Lake South – add pictures of the site maps and open them with no signal, with zoom','Renamed: Suncor is now “Suncor Mobile Crane SWP” and Crane moves is now “Barnhart On Site Crane Movement FLRA”','Crane library is now in the main app with the 16 cranes that have full info, grouped by type and make: All Terrain – Liebherr (LTM 1045-3.1, 1055-3.2, 1070-4.1, 1095-5.1, 1100-4.1, 1100-4.2, 1130-5.1, 1160-5.1, 1220-5.2, 1250-6.1), Rough Terrain – Grove (RT635C, RT870, RT880E, RT9130E, RT9130E-2) and Carry Deck – Grove (YB4415)','Pick a crane on the lift calc for counterweight, hook block, ball, boom length, jib weight and parts of line pick-lists – you can still type your own numbers; gross capacity is always entered by you','The crane library also works on the Suncor Mobile Crane SWP and the Barnhart On Site Crane Movement FLRA: outrigger stance, travel width and height pick-lists, and the unit # fills in wherever it is written more than once','Outrigger stances and travel sizes come from the manufacturers\' data sheets online, in feet and inches rounded up to the next inch; all-terrain travel sizes assume 525/80 R 25 tyres – check them against the unit','Suncor Mobile Crane SWP: Permit #, Emergency Assembly Area, Emergency Meeting Point and Emergency Phone # / Radio are on both the Crane FLRA and Sign-offs tabs, linked – fill either one and both match','Link a Barnhart On Site Crane Movement FLRA to a Barnhart Crane Lift FLRA: shared details fill both, jump between them, export them together, or start a linked movement from the FLRA Job tab','Copyright notice added to the home screen'],2],
 ['3.48',['Copyright notice added to the home screen and the app files'],1],
 ['3.47',['Link a Barnhart On Site Crane Movement FLRA to a Barnhart Crane Lift FLRA: from the FLRA Job tab start a new linked movement or link an existing one; from the movement Job tab link to an FLRA','Linked forms share date, prepared by, client, work location, job number, crane make/model and library pick, unit #, operator and permit # – type once, both update','Open either form from the other with one tap; Unlink keeps what is filled in','The FLRA PDF and picture copies include the linked crane movement pages'],1],
@@ -13567,12 +13577,12 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   out:[],
   trav:{"w":[],"h":[]},
   cwt:[[null,1220]],
-  line:[16800],
-  blocks:[[54.4,120000,1250,5,10,0],[45.4,100000,1000,4,8,0],[45.4,100000,1000,3,6,0],[7.5,16600,350,0,1,0],[7.5,16600,370,0,1,0]],
-  booms:[36,40,50,60,70,80,90,100,110],
-  jibNote:"boom extension deductions from your load chart (sn 221688 / 225804)",
-  jibStow:[0,0,0,0,0,0,0,0,0],
-  jibErect:[["33 ft extension erected (deduct from main boom)",[5080,5080,5080,5080,5080,5080,5080,5080,5080]],["56 ft extension erected (deduct from main boom)",[11330,11330,11330,11330,11330,11330,11330,11330,11330]]]},
+  line:[],
+  blocks:[[49.9,110000,1251,5,10,0],[40.8,90000,1001,4,8,0],[4.5,10000,351,0,1,0],[4.5,10000,371,0,1,0]],
+  booms:[],
+  jibNote:"",
+  jibStow:[],
+  jibErect:[]},
 {id:"grove-rt765e-2",
   name:"Grove RT765E-2",
   cat:"Rough Terrain – Grove",
@@ -13583,9 +13593,9 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   line:[16800],
   blocks:[[59.9,132000,1280,-1,0,0],[45.4,100000,992,-1,0,0],[36.3,80000,1071,-1,0,0],[26.3,58000,712,-1,0,0],[9.1,20000,434,-1,0,0],[7.5,16600,355,0,1,0]],
   booms:[36.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0],
-  jibNote:"boom extension deductions from your load chart (sn 233393), without block or ball",
+  jibNote:"boom extension deductions from the product guide",
   jibStow:[0,0,0,0,0,0,0,0,0],
-  jibErect:[["33 ft extension erected (deduct from main boom)",[3850,3850,3850,3850,3850,3850,3850,3850,3850]],["56 ft extension erected (deduct from main boom)",[8620,8620,8620,8620,8620,8620,8620,8620,8620]],["33 ft ext + 20 ft insert erected (deduct from main boom)",[7480,7480,7480,7480,7480,7480,7480,7480,7480]],["56 ft ext + 20 ft insert erected (deduct from main boom)",[13320,13320,13320,13320,13320,13320,13320,13320,13320]],["33 ft ext + 40 ft insert erected (deduct from main boom)",[9990,9990,9990,9990,9990,9990,9990,9990,9990]],["56 ft ext + 40 ft insert erected (deduct from main boom)",[14610,14610,14610,14610,14610,14610,14610,14610,14610]]]},
+  jibErect:[]},
 {id:"grove-rt865b",
   name:"Grove RT865B",
   cat:"Rough Terrain – Grove",
@@ -13639,14 +13649,14 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   jibStow:[0,0,0,0,0,0,0,0,0,0],
   jibErect:[["33 ft Extension erected (deduct from main boom)",[3700,3700,3700,3700,3700,3700,3700,3700,3700,3700]],["56 ft Extension erected (deduct from main boom)",[7830,7830,7830,7830,7830,7830,7830,7830,7830,7830]],["76 ft erected (deduct from main boom)",[10350,10350,10350,10350,10350,10350,10350,10350,10350,10350]],["96 ft erected (deduct from main boom)",[13300,13300,13300,13300,13300,13300,13300,13300,13300,13300]]]},
 {id:"grove-rt890e",
-  name:"Grove RT890E",
+  name:"Grove RT890E",gap:"80 USt 5-sheave block weight (printed heavier than the 90 USt block)",
   cat:"Rough Terrain – Grove",
   web:1,
   out:[["Full extend: 24' spread","24' (full extend)"],["Mid-Extend: 17'4\" spread","17'4\" (mid-extend)"],["Retracted: 10'4\" spread","10'4\" (retracted)"]],
   trav:{"w":[["11' – 29.5 x 25 tyres","11'"]],"h":[["12'5\" – 29.5 x 25 tyres","12'5\""]]},
   cwt:[[null,22000]],
   line:[16800],
-  blocks:[[72.6,160000,1600,5,10,0],[81.6,180000,1300,5,10,0],[9.1,20000,568,0,1,0]],
+  blocks:[[81.6,180000,1300,5,10,0],[9.1,20000,568,0,1,0]],
   booms:[37.3,50.5,63.7,76.7,89.8,102.8,115.8,128.8,141.7],
   jibNote:"boom extension deductions from the product guide",
   jibStow:[0,0,0,0,0,0,0,0,0],
@@ -14275,7 +14285,7 @@ function render(keep){
     if(XF[homeTab]&&!XF[homeTab].on)homeTab='flra';const nF=list.filter(x=>recKind(x)==='flra').length,nC=list.filter(isCalc).length,hc=homeTab==='calc',hx=XF[homeTab],shown=list.filter(x=>recKind(x)===homeTab);
     m.innerHTML=`<div style="text-align:right;margin:-4px 2px 6px"><button type="button" id="buildNo" style="border:0;background:none;padding:6px 0 6px 12px;font-size:13px;color:var(--mut);font-family:inherit">${TESTAPP?'Test build ':'Build '}${BUILD} · <u style="color:var(--acc)">what's new</u></button></div>${TESTAPP?'<div class="banner red">TEST VERSION – for trying changes before they go to the main app. Do not use it for real FLRAs. Anything saved here stays in this test app only.</div>':''}<h2 id="secT" style="margin:2px 2px 8px;font-size:19px">${hx?esc(hx.tab):hc?'Lift calcs only':'FLRAs'} <span style="font-weight:400;color:var(--mut);font-size:14px">(${shown.length})</span></h2>
     <button class="btn wide" id="newBtn">${hx?hx.newLab:hc?'＋ New lift calc':'＋ New FLRA'}</button>
-    <button class="btn sec wide" id="scanBtn">▦ Scan a QR code to add one from another device</button>
+    <button class="btn sec wide" id="scanBtn">▦ Scan a QR code</button>
     ${hx?`<p class="note">${hx.intro}</p>`:''}${shown.length?'':`<p class="note">${hx?hx.empty:hc?'No lift calcs saved yet. A lift calc is just the Crane details and Lift calculation, without the rest of the FLRA. ':'No FLRAs saved yet. Tap New FLRA to start.'}</p>`}
     ${shown.slice().sort((a,b)=>b.updated-a.updated).map(f=>{const sn=isSyn(f),p=sn?XF[f.t].pct(f.v):maxPct(f.v);return `<div class="card item"><div class="meta"><b>${esc(sn?synLab(f):(f.v.job||f.v.c1_make||(isCalc(f)?'Untitled lift calc':'Untitled FLRA')))}</b><small>${esc(f.v.date||'')}${f.v.loc?' · '+esc(f.v.loc):''}${isFinite(p)?' · '+fmt(p,1)+'%':''}</small></div><button data-open="${f.id}">Open</button><button data-dup="${f.id}">Duplicate</button><button data-pdf="${f.id}">PDF</button><button data-qr="${f.id}">QR</button><button class="del" data-del="${f.id}" aria-label="Delete">✕</button></div>`}).join('')}
     <p class="note">FLRAs and lift calcs are stored on this device only. Use PDF to save or share a completed FLRA, or QR to let another phone or tablet scan it – for a PDF copy, or to add it to the app on that device and keep working on it. Duplicate starts a new FLRA from an old one with today's date; signatures, initials, break reviews and job completion are cleared, so re-check every answer for the new job. On iPhone / iPad: Share → Add to Home Screen to install.</p>
@@ -14286,7 +14296,7 @@ function render(keep){
     <label class="f" style="display:flex;gap:8px;align-items:center;margin:6px 0"><input type="checkbox" id="caH" checked style="width:22px;height:22px"> <span style="font-size:15px;color:var(--ink);margin:0">My saved hazards (${libLoad().length})</span></label>
     <label class="f" style="display:flex;gap:8px;align-items:center;margin:6px 0"><input type="checkbox" id="caC" checked style="width:22px;height:22px"> <span style="font-size:15px;color:var(--ink);margin:0">My saved crane configurations (${crLoad().length})</span></label>
     <button class="btn sec wide" id="caBtn">▦ Show QR codes to copy these</button>
-    <p class="note">The other device scans the codes with “Scan a QR code to add one from another device”. It works with no signal and adds to what is already there. Signatures are included.</p></div>
+    <p class="note">The other device scans the codes with “Scan a QR code”. It works with no signal and adds to what is already there. Signatures are included.</p></div>
     <div class="card" style="text-align:center"><h2>Share this app</h2><canvas id="appqr" width="660" height="660" style="width:230px;height:230px;max-width:100%" role="img" aria-label="QR code with the link to this app"></canvas><div class="note" id="appurl" style="word-break:break-all"></div><p class="note">Scan with a phone or tablet camera to open the app, then add it to the home screen. It arrives blank – none of your FLRAs are shared.</p></div>`;
     appQR();
     $('#caBtn').onclick=sendAll;
@@ -15143,7 +15153,7 @@ async function sendAll(){clearTimeout(st);saveList();clearInterval(qrT);const in
   if(inc.c)o.cranes=crLoad().map(x=>({name:x.name,d:x.d}));
   const cnt=(o.recs||[]).length+(o.lib||[]).length+(o.cranes||[]).length;if(!cnt){toast('Nothing to copy yet');return}
   let parts;try{parts=shareParts(null,null,qpack(o)).map(qrMake)}catch(e){alert('Could not make the QR codes.');return}
-  qrState={parts,mode:'parts',fast:parts.length>12,note:'Copying '+[(o.recs||[]).length&&(o.recs.length+' FLRA'+(o.recs.length>1?'s':'')+' / lift calc'+(o.recs.length>1?'s':'')),(o.lib||[]).length&&(o.lib.length+' saved hazard'+(o.lib.length>1?'s':'')),(o.cranes||[]).length&&(o.cranes.length+' crane configuration'+(o.cranes.length>1?'s':''))].filter(Boolean).join(', ')+'. On the other device open this app and tap “Scan a QR code to add one from another device”, then hold it on this screen until it has every code'+(parts.length>20?' – about '+Math.ceil(parts.length*0.55/5)*5+' seconds per pass':'')+'. Nothing is removed from this device.'};
+  qrState={parts,mode:'parts',fast:parts.length>12,note:'Copying '+[(o.recs||[]).length&&(o.recs.length+' FLRA'+(o.recs.length>1?'s':'')+' / lift calc'+(o.recs.length>1?'s':'')),(o.lib||[]).length&&(o.lib.length+' saved hazard'+(o.lib.length>1?'s':'')),(o.cranes||[]).length&&(o.cranes.length+' crane configuration'+(o.cranes.length>1?'s':''))].filter(Boolean).join(', ')+'. On the other device open this app and tap “Scan a QR code”, then hold it on this screen until it has every code'+(parts.length>20?' – about '+Math.ceil(parts.length*0.55/5)*5+' seconds per pass':'')+'. Nothing is removed from this device.'};
   qrShow();$('#qrm').classList.remove('hide')}
 function importAll(o){let nR=0,nU=0,nH=0,nC=0;
   (o.recs||[]).forEach(r=>{if(!r||!r.v)return;sigHydrate(r);const f={id:r.id||('L'+Date.now()+Math.floor(Math.random()*1000)),updated:r.u||Date.now(),v:r.v};if(r.t==='calc'||XF[r.t])f.t=r.t;hzNorm(f.v);f.v.rev=f.v.rev||16;
@@ -15253,7 +15263,7 @@ function scanText(t){if(scanBusy)return false;{const ys=/[#&]sync=([\w\-]{43})(?
   stopScan();if(r.all){importAll(r.all);return true}
   const f={id:'L'+Date.now(),updated:Date.now(),v:r.v};if(r.t)f.t=r.t;list.push(f);saveList();qOpen(f);return true}
 function checkShare(){const m=/[#&]f=([\w\-]+)/.exec(location.hash);
-  if(!m&&/[#&]p=\w+\.\d+\.\d+\./.test(location.hash)){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}alert('That QR code is one of a set, used when an FLRA has signatures. To get it with signatures, open this app on this device and tap “Scan a QR code to add one from another device”. For a PDF from a phone camera, ask for the single code without signatures.');return}
+  if(!m&&/[#&]p=\w+\.\d+\.\d+\./.test(location.hash)){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}alert('That QR code is one of a set, used when an FLRA has signatures. To get it with signatures, open this app on this device and tap “Scan a QR code”. For a PDF from a phone camera, ask for the single code without signatures.');return}
   if(!m)return;
   try{const r0=decodeShare(m[1]);if(r0.all){importAll(r0.all);return}shared=r0;view='shared';render();scrollTo(0,0)}
   catch(e){alert('Could not read the FLRA in that link. Try scanning the QR code again.')}
@@ -15262,13 +15272,13 @@ function sharedView(m){['#homeBtn','#pdfTop','#tabs','#menuBtn'].forEach(s=>$(s)
   m.innerHTML=`<div class="card"><h2>Copy received from QR code</h2><div class="qt"><b>${esc(isSyn(shared)?synLab(shared):(v.job||v.c1_make||'Untitled'))}</b><br>${esc(v.date||'')}${v.loc?' · '+esc(v.loc):''}${v.prep?'<br>Prepared by '+esc(v.prep):''}</div>
   <button class="btn wide" id="shPdf">⬇ Save / Share PDF</button><button class="btn sec wide" id="shAdd">Add to this device and open</button><button class="btn sec wide" id="shX">Close</button>
   <p class="note">The details travelled inside the QR code itself – nothing was uploaded. Nothing is kept on this device unless you save the PDF or add it.</p></div>`;
-  if($('#shPdf'))$('#shPdf').onclick=()=>exportAsk(shared);
   $('#shAdd').onclick=()=>{const f={id:'L'+Date.now(),updated:Date.now(),v:shared.v};if(shared.t)f.t=shared.t;list.push(f);saveList();shared=null;qOpen(f)};
+  if($('#shPdf'))$('#shPdf').onclick=()=>exportAsk(shared);
   $('#shX').onclick=()=>{shared=null;view='home';render()}}
 addEventListener('hashchange',checkShare);
 
 document.addEventListener('click',e=>{const t=e.target;if(t.closest&&t.closest('#buildNo'))showNotes();else if(t.closest&&t.closest('#bnX,#bnX2'))$('#bnm').classList.add('hide');else if(t.closest&&t.closest('#bnUp')){$('#bnm').classList.add('hide');checkUpdate()}});
-function appQR(){const c=$('#appqr');if(!c)return;const u=location.origin+location.pathname.replace(/index\.html$/,'');$('#appurl').textContent=u.replace(/^https?:\/\//,'');try{const q=qrMake(u),n=q.getModuleCount(),x=c.getContext('2d'),m=3,z=Math.floor(c.width/(n+2*m)),o=Math.floor((c.width-z*n)/2);x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.fillStyle='#000';for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(o+k*z,o+r*z,z,z)}catch(e){c.style.display='none'}}
+function appQR(){const c=$('#appqr');if(!c)return;const u=/^(localhost|127\.0\.0\.1)$|\.github\.io$/.test(location.hostname)?location.origin+location.pathname.replace(/index\.html$/,''):(TESTAPP?'https://test.pricedev.ca/':'https://flra.pricedev.ca/');$('#appurl').textContent=u.replace(/^https?:\/\//,'');try{const q=qrMake(u),n=q.getModuleCount(),x=c.getContext('2d'),m=3,z=Math.floor(c.width/(n+2*m)),o=Math.floor((c.width-z*n)/2);x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.fillStyle='#000';for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(o+k*z,o+r*z,z,z)}catch(e){c.style.display='none'}}
 
 /* ---------- menu (top left) ---------- */
 function secList(){return [['flra','FLRAs',list.filter(x=>recKind(x)==='flra').length],['calc','Lift calcs only',list.filter(isCalc).length]].concat(Object.keys(XF).filter(k=>XF[k].on).map(k=>[k,XF[k].tab,list.filter(x=>x.t===k).length]))}
@@ -15350,10 +15360,10 @@ async function checkUpdate(){if(PTR.busy)return;PTR.busy=1;$('#ptr').classList.a
 function updNote(){let u=null;try{u=sessionStorage.getItem('flra.upd');sessionStorage.removeItem('flra.upd')}catch(e){}
   if(u&&u!==BUILD)toast('Updated to '+BN().toLowerCase()+BUILD+' – tap “what\'s new” to see the changes',4000);else if(u)toast('Still on '+BN().toLowerCase()+BUILD+' – try again in a minute',3000)}
 
-/* ---------- personal sync between devices (only on test.pricedev.ca and my.pricedev.ca) ----------
+/* ---------- personal sync between devices (flra.pricedev.ca and test.pricedev.ca) ----------
    No sign-in: devices share one pairing code (QR). Everything is compressed and encrypted on the device
    (AES-GCM, key derived from the pairing code) before it is uploaded, so the database holds nothing readable. */
-const SYNCON=/^(my|test)\./.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
+const SYNCON=/^(flra|test)\.pricedev\.ca$/.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
 const SYK='flra.sync.v1',SYB=window.SYNC_BASE||'https://firestore.googleapis.com/v1/projects/pricedev-2d1e9/databases/(default)/documents';
 let syS=null,syBusy=false,syT=0,syKey=null,syVid='',syMsg='',syErr='';
 function syLoad(){try{const o=JSON.parse(localStorage.getItem(SYK));return o&&o.s?o:null}catch(e){return null}}
@@ -15369,18 +15379,29 @@ const syDoc=d=>{const f=d.fields||{};return {id:String(d.name).split('/').pop(),
 async function syGet(id){const r=await fetch(syUrl(id),{cache:'no-store'});if(r.status===404)return null;if(!r.ok)throw new Error('read '+r.status);return syDoc(await r.json())}
 async function syPut(id,u,c,x){const r=await fetch(syUrl(id),{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:{u:{integerValue:String(u)},x:{booleanValue:!!x},c:{stringValue:c||''}}})});if(!r.ok)throw new Error('write '+r.status)}
 async function syList(){const out=[];let tok='';do{const r=await fetch(syUrl()+'?pageSize=300&mask.fieldPaths=u&mask.fieldPaths=x'+(tok?'&pageToken='+encodeURIComponent(tok):''),{cache:'no-store'});if(!r.ok)throw new Error('list '+r.status);const j=await r.json();(j.documents||[]).forEach(d=>out.push(syDoc(d)));tok=j.nextPageToken||''}while(tok);return out}
+const SYBK='flra.syncbye.v1',SYDAY=86400000;
+const syDevId=()=>{if(!syS.dev)syS.dev=b64e(crypto.getRandomValues(new Uint8Array(9)));return '_d'+syS.dev};
+const syOthers=(R,mine)=>Object.keys(R).filter(id=>id.slice(0,2)==='_d'&&id!==mine&&!R[id].x&&R[id].u>Date.now()-60*SYDAY).length;
+async function syDel(id){let ok=false;try{const r=await fetch(syUrl(id),{method:'DELETE'});ok=r.ok}catch(e){}if(!ok)await syPut(id,0,'',false)}
+/* this device has stopped syncing: take it off the list, and if no other device is still linked, remove everything from the sync service */
+async function syByeRun(){let q=[];try{q=JSON.parse(localStorage.getItem(SYBK))||[]}catch(e){}if(!q.length||syBusy||navigator.onLine===false)return;syBusy=true;const keep=syS,left=[];
+  for(const j of q){try{syS={s:j.s};await syInit();const R={};(await syList()).forEach(d=>R[d.id]=d);const mine='_d'+j.dev;
+      if(syOthers(R,mine)){if(R[mine])await syPut(mine,Date.now(),'',true)}else{for(const id of Object.keys(R))await syDel(id)}}catch(e){left.push(j)}}
+  syS=keep;syKey=null;syVid='';syBusy=false;try{if(left.length)localStorage.setItem(SYBK,JSON.stringify(left));else localStorage.removeItem(SYBK)}catch(e){}}
+function syBye(){if(!syS)return;let q=[];try{q=JSON.parse(localStorage.getItem(SYBK))||[]}catch(e){}q.push({s:syS.s,dev:syS.dev||''});try{localStorage.setItem(SYBK,JSON.stringify(q))}catch(e){}}
 const SYLIBS=[['_lib',()=>libLoad(),a=>libSave(a),o=>libKey(o)],['_cr',()=>crLoad(),a=>crStore(a),o=>JSON.stringify([o.name,o.d])]];
 const syOpen=id=>!!(cur&&cur.id===id&&view!=='home');
 function syDirty(){if(!syS)return false;const L={};for(const f of list){L[f.id]=1;if((f.updated||1)!==syS.seen[f.id])return true}for(const id in syS.seen)if(!L[id])return true;
   for(const [id,get] of SYLIBS)if(syHash(JSON.stringify(get()))!==syS.lh[id]&&!(syS.lh[id]===undefined&&!get().length))return true;return false}
 const syAgo=t=>{const s=Math.max(0,Math.round((Date.now()-t)/1000));return s<50?'just now':s<3000?Math.round(s/60)+' min ago':s<80000?Math.round(s/3600)+' h ago':Math.round(s/86400)+' d ago'};
-function syStat(m){if(m!==undefined)syMsg=m;const e=$('#syStatT');if(!e)return;e.textContent=syMsg||(syErr?syErr:(syS&&syS.at?'In sync · checked '+syAgo(syS.at):'Not synced yet'));e.style.color=syErr&&!syMsg?'var(--bad,#b91c1c)':''}
+function syStat(m){if(m!==undefined)syMsg=m;const tb=$('#syBarT');if(tb&&syS){tb.textContent=syMsg||(syErr?syErr:(syS.at?(syDirty()?'Changes waiting':'Synced '+syAgo(syS.at)):'Not synced yet'));tb.style.color=syErr&&!syMsg?'#b91c1c':syDirty()&&!syMsg?'#b45309':''}const e=$('#syStatT');if(!e)return;e.textContent=syMsg||(syErr?syErr:(syS&&syS.at?(syDirty()?'Changes waiting – tap Sync now':'Synced '+syAgo(syS.at)):'Not synced yet'));e.style.color=syErr&&!syMsg?'var(--bad,#b91c1c)':''}
 async function syncNow(force){if(!SYNCON||!syS||syBusy)return;if(navigator.onLine===false){syErr='Offline – it will sync when there is signal';syStat('');return}
   syBusy=true;syStat('Syncing…');let changed=false,pushed=false,skipped=0;
   try{if(!syKey)await syInit();clearTimeout(st);sySaveList0();
     const head=await syGet('_head'),hu=head?head.u:0;
     if(force||syDirty()||hu!==syS.head){
       const R={};(await syList()).forEach(d=>R[d.id]=d);const now=Date.now();let L={};list.forEach(f=>L[f.id]=f);
+      {const dv=syDevId(),r=R[dv];if(!r||r.x||r.u<now-SYDAY){await syPut(dv,now,'',false);R[dv]={id:dv,u:now,x:false,c:''}}syS.others=syOthers(R,dv)}
       /* deleted on this device since the last sync */
       for(const id of Object.keys(syS.seen)){if(L[id])continue;const r=R[id];if(r&&!r.x&&r.u<=syS.seen[id]){await syPut(id,now,'',true);R[id]={id,u:now,x:true,c:''};pushed=true}if(!r||R[id].x)delete syS.seen[id]}
       /* newer or new on another device */
@@ -15405,37 +15426,95 @@ async function syncNow(force){if(!SYNCON||!syS||syBusy)return;if(navigator.onLin
       if(changed)sySaveList0()}
     syS.at=Date.now();syErr=skipped?skipped+' item'+(skipped>1?'s':'')+' could not be synced (too large or unreadable)':'';sySave();
   }catch(e){syErr=/Failed to fetch|NetworkError|Load failed/i.test(String(e&&e.message))?'No connection to the sync service – it will try again':'Sync problem ('+(e&&e.message||e)+') – it will try again'}
-  syBusy=false;syStat('');if(changed&&view==='home')render();if(syS&&!syErr&&syDirty()){clearTimeout(syT);syT=setTimeout(()=>syncNow(),4000)}}
+  syBusy=false;syStat('');if(changed&&view==='home')render()}
 /* run a sync a few seconds after anything is saved */
-const sySaveList0=saveList;saveList=function(){const r=sySaveList0();if(SYNCON&&syS&&!syBusy){clearTimeout(syT);syT=setTimeout(()=>syncNow(),4000)}return r};
+const sySaveList0=saveList;saveList=function(){const r=sySaveList0();if(SYNCON&&syS&&!syBusy)syStat();return r};
 function syCode(){return location.origin+location.pathname.replace(/index\.html$/,'')+'#sync='+syS.s}
 async function syJoin(s,ask){if(!SYNCON)return;if(!/^[\w\-]{43}$/.test(s)){alert('That is not a pairing code from this app.');return}
   if(syS&&syS.s===s){toast('This device is already linked with that code');return}
   if(syS&&!confirm('This device is already syncing with a different pairing code. Switch to the new one? Nothing is deleted from this device.'))return;
-  if(ask&&!confirm('Link this device? Everything saved here and everything on your other linked devices will be combined and kept in sync.'))return;
-  syS={s,seen:{},head:-1,lh:{},ru:{},at:0};syKey=null;syErr='';sySave();if(view==='home')render();await syncNow(true);toast(syErr?'Linked – '+syErr:'Linked. Devices are in sync',3000)}
+  if(ask&&!confirm('Use your data on this device? Everything saved here and everything on your main device will be combined.'))return;
+  syS={s,role:'guest',seen:{},head:-1,lh:{},ru:{},at:0};syKey=null;syErr='';sySave();if(view==='home')render();await syncNow(true);toast(syErr?'Linked – '+syErr:'Your data is on this device',3000)}
 function syStart(){if(!window.crypto||!crypto.subtle){alert('Sync needs a secure (https) page and a current browser.');return}
-  const b=crypto.getRandomValues(new Uint8Array(32));syS={s:b64e(b),seen:{},head:-1,lh:{},ru:{},at:0};syKey=null;syErr='';sySave();render();syncNow(true).then(syShow)}
-function syStop(){if(!confirm('Stop syncing on this device? Everything stays saved on this device and on your other devices; this device just stops sending and receiving changes.'))return;syS=null;syKey=null;syErr='';clearTimeout(syT);sySave();render()}
-function syShow(){if(!syS)return;let m=$('#sym');if(!m){m=document.createElement('div');m.id='sym';m.className='modal hide';m.innerHTML='<div class="box" style="text-align:center;max-height:94vh;overflow:auto"><b>Pairing code for your devices</b><p class="note" style="margin:6px 0">On the other device open this same app, go to “Sync between my devices” and tap “Join – scan the pairing code”.</p><canvas id="syQr" width="660" height="660" style="width:260px;height:260px;max-width:100%"></canvas><p class="note" style="margin:8px 0 2px">Or type this code there. Keep a copy somewhere safe – anyone with this code can read your synced FLRAs, and without it they cannot be recovered if you lose every linked device.</p><div id="syTxt" style="font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-all;user-select:all;-webkit-user-select:all;border:1px solid var(--line);border-radius:8px;padding:8px;text-align:left"></div><button type="button" class="btn sec wide" id="syCopy" style="margin-top:8px">Copy the code</button><button type="button" class="btn wide" id="syX" style="margin-top:8px">Done</button></div>';document.body.appendChild(m);
+  const b=crypto.getRandomValues(new Uint8Array(32));syS={s:b64e(b),role:'main',seen:{},head:-1,lh:{},ru:{},at:0};syKey=null;syErr='';sySave();render();syncNow(true).then(syShow)}
+async function syStop(){if(!syS||syBusy)return;if(!confirm('Turn sync off? Everything stays saved on this device. If no other device is still linked, your copy is also removed from the sync service.'))return;
+  if(navigator.onLine!==false){toast('Sending the last changes…',3000);await syncNow(true)}
+  syBye();syS=null;syKey=null;syErr='';clearTimeout(syT);sySave();render();await syByeRun();toast('Syncing is off on this device. Everything is still saved here',3500)}
+async function syWipe(){if(!syS||syBusy)return;if(navigator.onLine===false){alert('No signal. This device cannot be cleared until it has synced, or your latest changes would be lost. Try again when there is signal.');return}
+  toast('Syncing before clearing…',4000);await syncNow(true);
+  if(syErr||syDirty()){alert('Could not finish syncing ('+(syErr||'changes still waiting')+'). Nothing was cleared. Try again when there is signal.');return}
+  if(!syS.others&&!confirm('Your main device is no longer linked, so this is the only copy of anything you changed here. Clearing will delete it for good. Clear anyway?'))return;
+  if(!confirm('Everything is synced. Clear this device now? All FLRAs, lift calcs, saved hazards and saved crane configurations will be removed from THIS device only. They stay on your other linked devices.'))return;
+  if(!confirm('Last check: clear this device and stop syncing here?'))return;
+  clearTimeout(syT);clearTimeout(st);syBye();syS=null;syKey=null;syErr='';sySave();cur=null;view='home';list=[];sySaveList0();libSave([]);crStore([]);render();scrollTo(0,0);await syByeRun();toast('This device is cleared and no longer linked',3500)}
+function syShow(){if(!syS)return;let m=$('#sym');if(!m){m=document.createElement('div');m.id='sym';m.className='modal hide';m.innerHTML='<div class="box" style="text-align:center;max-height:94vh;overflow:auto"><b>My code for another device</b><p class="note" style="margin:6px 0">On the other device open this same app, go to “Sync” and tap “Use my data here – scan the code from my main device”.</p><canvas id="syQr" width="660" height="660" style="width:260px;height:260px;max-width:100%"></canvas><p class="note" style="margin:8px 0 2px">Or type this code there. Keep a copy somewhere safe – anyone with this code can read your synced FLRAs, and without it they cannot be recovered if you lose every linked device.</p><div id="syTxt" style="font-family:ui-monospace,Menlo,monospace;font-size:13px;word-break:break-all;user-select:all;-webkit-user-select:all;border:1px solid var(--line);border-radius:8px;padding:8px;text-align:left"></div><button type="button" class="btn sec wide" id="syCopy" style="margin-top:8px">Copy the code</button><button type="button" class="btn wide" id="syX" style="margin-top:8px">Done</button></div>';document.body.appendChild(m);
     m.querySelector('#syX').onclick=()=>m.classList.add('hide');m.querySelector('#syCopy').onclick=()=>{try{navigator.clipboard.writeText(syS.s).then(()=>toast('Code copied'),()=>toast('Select the code and copy it'))}catch(e){toast('Select the code and copy it')}}}
   $('#syTxt').textContent=syS.s;try{const q=qrMake(syCode()),c=$('#syQr'),n=q.getModuleCount(),x=c.getContext('2d'),g=3,z=Math.floor(c.width/(n+2*g)),o=Math.floor((c.width-z*n)/2);x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.fillStyle='#000';for(let r=0;r<n;r++)for(let k=0;k<n;k++)if(q.isDark(r,k))x.fillRect(o+k*z,o+r*z,z,z)}catch(e){}
   m.classList.remove('hide')}
-function syCard(){if(!SYNCON||view!=='home'||homeTab==='maps')return;const m=$('#main');if(!m||$('#syCard'))return;const d=document.createElement('div');d.className='card';d.id='syCard';
-  d.innerHTML='<h2>Sync between my devices</h2>'+(syS?'<div id="syStatT" style="font-weight:600;margin:4px 0 8px"></div><button class="btn wide" id="syNow">Sync now</button><button class="btn sec wide" id="syAdd" style="margin-top:8px">▦ Add another device – show the pairing code</button><button class="btn sec wide" id="syOff" style="margin-top:8px">Stop syncing on this device</button><p class="note">FLRAs, lift calcs, saved hazards and saved crane configurations are kept the same on every linked device. It syncs on its own when there is signal. Site map pictures you add yourself stay on the device they were added on.</p>'
-    :'<p class="note" style="margin-top:0">Keep your FLRAs, lift calcs, saved hazards and saved crane configurations the same on your phone, tablet and laptop. No sign-in – devices are linked once with a pairing code.</p><button class="btn wide" id="syNew">Start syncing on this device</button><button class="btn sec wide" id="syScan" style="margin-top:8px">▦ Join – scan the pairing code from another device</button><button class="btn sec wide" id="syType" style="margin-top:8px">Join – type the pairing code</button>');
+function syCard(){if(!SYNCON||view!=='home'||homeTab==='maps')return;const m=$('#main');if(!m||$('#syCard'))return;const d=document.createElement('div');d.className='card';d.id='syCard';const guest=syS&&syS.role==='guest';
+  if(syS&&!syS.role){d.innerHTML='<h2>Sync</h2><p class="note" style="margin-top:0">Sync has been made simpler. Which is this device?</p><button class="btn wide" id="syRM">My main device (my own phone or tablet)</button><button class="btn sec wide" id="syRG" style="margin-top:8px">A borrowed device (shared tablet)</button>';const ca0=$('#caBtn'),b0=ca0&&ca0.closest('.card');if(b0)m.insertBefore(d,b0);else m.appendChild(d);$('#syRM').onclick=()=>{syS.role='main';sySave();render()};$('#syRG').onclick=()=>{syS.role='guest';sySave();render()};return}
+  d.innerHTML=!syS?'<h2>Sync</h2><p class="note" style="margin-top:0">Pick one device as your main device – usually your own phone. Then you can load your FLRAs, lift calcs, saved hazards and crane configurations onto any other device, like a shared tablet, and clear it when you are done. Nothing syncs by itself: it happens when you tap Sync now.</p><button class="btn wide" id="syNew">This is my main device</button><button class="btn sec wide" id="syScan" style="margin-top:8px">▦ Use my data here – scan the code from my main device</button><button class="btn sec wide" id="syType" style="margin-top:8px">Type the code instead</button>'
+   :guest?'<h2>Sync · borrowed device</h2><div id="syStatT" style="font-weight:600;margin:4px 0 8px"></div><button class="btn wide" id="syNow">Sync now</button><button class="btn sec wide" id="syWipe" style="margin-top:8px;color:#b91c1c;border-color:#b91c1c">Finished – sync and clear this device</button><p class="note">Your data is on this device from your main device. Tap Sync now to send your changes back. When you are finished, clear this device so the next person does not see your paperwork.</p>'
+   :'<h2>Sync · my main device</h2><div id="syStatT" style="font-weight:600;margin:4px 0 8px"></div><button class="btn wide" id="syNow">Sync now</button><button class="btn sec wide" id="syAdd" style="margin-top:8px">▦ Show my code for another device</button><button class="btn sec wide" id="syOff" style="margin-top:8px">Turn sync off</button><p class="note">Tap Sync now to send your changes and pick up changes made on your other devices. Turning sync off keeps everything on this device; once no device is linked, your copy is removed from the sync service. Site map pictures you add yourself stay on the device they were added on.</p>';
   const ca=$('#caBtn'),before=ca&&ca.closest('.card');if(before)m.insertBefore(d,before);else m.appendChild(d);
-  if(syS){$('#syNow').onclick=()=>syncNow(true);$('#syAdd').onclick=syShow;$('#syOff').onclick=syStop;syStat()}
-  else{$('#syNew').onclick=syStart;$('#syScan').onclick=startScan;$('#syType').onclick=()=>{const s=(prompt('Pairing code from your other device')||'').trim().replace(/^.*[#&]sync=/,'');if(s)syJoin(s)}}}
+  if(syS){$('#syNow').onclick=()=>syncNow(true);if(guest)$('#syWipe').onclick=syWipe;else{$('#syAdd').onclick=syShow;$('#syOff').onclick=syStop}
+    if(!$('#syBar')){const b=document.createElement('div');b.id='syBar';b.style.cssText='display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:10px;background:#fff;padding:8px 10px;margin:0 0 10px';b.innerHTML='<div style="flex:1;min-width:0"><div style="font-size:12px;color:var(--mut)">'+(guest?'Borrowed device':'Main device')+'</div><div id="syBarT" style="font-weight:700;font-size:15px"></div></div><button type="button" class="btn" id="syBarB" style="padding:10px 16px">Sync now</button>';
+      const anchor=$('#secT')||m.firstChild;m.insertBefore(b,anchor);b.querySelector('#syBarB').onclick=()=>syncNow(true)}
+    syStat()}
+  else{$('#syNew').onclick=syStart;$('#syScan').onclick=startScan;$('#syType').onclick=()=>{const s=(prompt('Code from your main device')||'').trim().replace(/^.*[#&]sync=/,'');if(s)syJoin(s)}}}
 const syRender0=render;render=function(k){syRender0(k);try{syCard()}catch(e){}};
 function syBoot(){if(!SYNCON)return;syS=syLoad();const h=/[#&]sync=([\w\-]{43})(?![\w\-])/.exec(location.hash);
   if(h){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}setTimeout(()=>syJoin(h[1],true),300)}
-  render();if(syS)setTimeout(()=>syncNow(),1200);
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')syncNow()});addEventListener('online',()=>syncNow());
-  setInterval(()=>{if(document.visibilityState==='visible'){if(syS)syncNow();else syStat()}},30000)}
+  render();setTimeout(()=>syByeRun(),1200);addEventListener('online',()=>syByeRun());setInterval(()=>syStat(),30000)}
+
+/* ---------- access code for the test app ----------
+   A 6-digit code is needed to open the test app. The master code unlocks for good and can make 24-hour codes.
+   This is a keep-out sign, not strong security: the app's files are public, so it stops casual use only. */
+const GATEON=TESTAPP&&(/\.pricedev\.ca$/.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]gate=1/.test(location.search)));
+const GK='flra.gate.v1',GS1='23bb1264ee6671ee',GS2='c91705c51adfde78',GVH='e9e933af3e2cf8bf2d2193ae53466c42a0418e85cb430ff1cbe6f84511b48ea0',GIT=300000,GAB=SYB.replace(/\/documents$/,'/documents')+'/access';
+let gSt=null,gBad=0,gWait=0;
+function gLoad(){try{return JSON.parse(localStorage.getItem(GK))||null}catch(e){return null}}
+function gSave(){try{if(gSt)localStorage.setItem(GK,JSON.stringify(gSt));else localStorage.removeItem(GK)}catch(e){}}
+const gOpen=()=>!GATEON||!!(gSt&&(gSt.m||(gSt.e&&gSt.e>Date.now())));
+const gUnhex=h=>Uint8Array.from(h.match(/../g),x=>parseInt(x,16));
+async function gPb(code,salt){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(code),'PBKDF2',false,['deriveBits']);return syHex(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:gUnhex(salt),iterations:GIT},k,256))}
+const gSha=async t=>syHex(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)));
+function gWhen(t){const d=new Date(t);return d.toLocaleDateString(undefined,{weekday:'short',month:'short',day:'numeric'})+' '+d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function gShow(msg){let g=$('#gate');if(!g){g=document.createElement('div');g.id='gate';g.style.cssText='position:fixed;inset:0;z-index:99;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;padding:20px';
+    g.innerHTML='<div style="width:100%;max-width:340px;text-align:center"><div style="font-size:20px;font-weight:700;margin-bottom:6px">FLRA test app</div><div id="gMsg" style="font-size:15px;margin-bottom:14px;min-height:40px"></div><input id="gIn" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="off" aria-label="6-digit access code" style="width:100%;font-size:30px;letter-spacing:10px;text-align:center;padding:12px 6px;border-radius:12px;border:0;color:#111"><button type="button" id="gGo" style="width:100%;margin-top:12px;padding:14px;font-size:17px;font-weight:700;border-radius:12px;border:2px solid #fff;background:transparent;color:#fff;font-family:inherit">Unlock</button></div>';
+    document.body.appendChild(g);g.querySelector('#gGo').onclick=gTry;g.querySelector('#gIn').addEventListener('keydown',e=>{if(e.key==='Enter')gTry()});g.querySelector('#gIn').addEventListener('input',e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,6);if(e.target.value.length===6)gTry()})}
+  $('#gMsg').textContent=msg||'Enter the 6-digit access code.';g.style.display='flex';document.documentElement.style.overflow='hidden'}
+function gHide(){const g=$('#gate');if(g)g.style.display='none';document.documentElement.style.overflow=''}
+async function gTry(){const i=$('#gIn'),c=i.value;if(!/^\d{6}$/.test(c)||i.disabled)return;const left=gWait-Date.now();if(left>0){$('#gMsg').textContent='Too many wrong codes. Wait '+Math.ceil(left/1000)+' seconds.';return}
+  i.disabled=true;$('#gMsg').textContent='Checking…';let ok=false,why='That code is not right.';
+  try{if(await gPb(c,GS1)===GVH){gSt={m:1,t:await gPb(c,GS2)};ok=true}
+    else{const r=await fetch(GAB+'/'+await gSha('acc|'+c),{cache:'no-store'});
+      if(r.ok){const f=(await r.json()).fields||{},e=+((f.e&&f.e.integerValue)||0);if(e>Date.now()){gSt={e};ok=true}else why='That code has expired.'}
+      else if(r.status!==404&&r.status!==403)why='Could not check the code ('+r.status+'). Try again.'}
+  }catch(e){why=navigator.onLine===false?'No signal. A 24-hour code needs signal the first time it is entered.':'Could not check the code. Check your signal and try again.'}
+  i.disabled=false;i.value='';
+  if(ok){gBad=0;gSave();gHide();render();toast(gSt.m?'Unlocked':'Unlocked until '+gWhen(gSt.e),3500)}
+  else{if(/not right/.test(why)&&++gBad>=5){gWait=Date.now()+30000;gBad=0;why='Too many wrong codes. Wait 30 seconds.'}$('#gMsg').textContent=why;i.focus()}}
+function gCheck(){if(!GATEON)return;if(gOpen())gHide();else{if(gSt&&gSt.e){gSt=null;gSave();gShow('Your 24-hour access has ended. Enter a new code.')}else gShow()}}
+async function gMake(){if(!gSt||!gSt.m)return;if(navigator.onLine===false){alert('No signal. Making a 24-hour code needs signal.');return}
+  const b=$('#gNew');if(b)b.disabled=true;try{for(let n=0;n<4;n++){const code=String(crypto.getRandomValues(new Uint32Array(1))[0]%1000000).padStart(6,'0');if(await gPb(code,GS1)===GVH)continue;
+      const id=await gSha('acc|'+code),e=Date.now()+24*3600000,k=await gSha(gSt.t+id);
+      const r=await fetch(GAB+'?documentId='+id,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:{e:{integerValue:String(e)},k:{stringValue:k}}})});
+      if(r.status===409)continue;if(!r.ok)throw new Error(r.status===403?'the database is not set up for access codes yet':'error '+r.status);
+      gSt.last={c:code,e};gSave();render();toast('24-hour code made',2500);return}
+    throw new Error('could not make a code, try again')}catch(e){alert('Could not make a 24-hour code: '+(e&&e.message||e))}finally{if(b)b.disabled=false}}
+function gCard(){if(!GATEON||view!=='home'||homeTab==='maps'||!gSt||!gSt.m)return;const m=$('#main');if(!m||$('#gCard'))return;const d=document.createElement('div');d.className='card';d.id='gCard';const L=gSt.last&&gSt.last.e>Date.now()?gSt.last:null;
+  d.innerHTML='<h2>Test app access</h2><p class="note" style="margin-top:0">This device is unlocked with the master code. A 24-hour code lets someone else open the test app for one day; it stops working by itself.</p>'+(L?'<div style="text-align:center;border:1px solid var(--line);border-radius:10px;padding:10px;margin:6px 0"><div style="font-size:30px;font-weight:700;letter-spacing:6px;user-select:all;-webkit-user-select:all">'+L.c+'</div><div class="note" style="margin:2px 0 0">Latest 24-hour code · works until '+esc(gWhen(L.e))+'</div></div>':'')+'<button class="btn wide" id="gNew">Make a 24-hour access code</button><button class="btn sec wide" id="gLock" style="margin-top:8px">Lock this device now</button>';
+  const ca=$('#caBtn'),before=ca&&ca.closest('.card');if(before)m.insertBefore(d,before);else m.appendChild(d);
+  $('#gNew').onclick=gMake;$('#gLock').onclick=()=>{if(confirm('Lock the test app on this device? The master code is needed to open it again.')){gSt=null;gSave();gCheck()}}}
+const gRender0=render;render=function(k){gRender0(k);try{gCard()}catch(e){}};
+function gBoot(){if(!GATEON)return;gSt=gLoad();gCheck();if(gOpen())render();setInterval(gCheck,30000);document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')gCheck()})}
+/* the QR “Copy everything to another device” card is only in the test app; in the main app sync does that job */
+const caRender0=render;render=function(k){caRender0(k);if(!TESTAPP){const c=$('#caBtn'),d=c&&c.closest('.card');if(d)d.remove()}};
 render();
 checkShare();
 syBoot();
+gBoot();
 updNote();
 if('serviceWorker' in navigator){addEventListener('load',()=>{navigator.serviceWorker.register('sw.js').catch(()=>{})})}
 </script>
