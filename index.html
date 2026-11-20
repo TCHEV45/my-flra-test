@@ -12928,9 +12928,10 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=true;const BUILD='3.55';
+const TESTAPP=true;const BUILD='3.56';
 const NOTES=[
-['3.55',['Personal app only (mytest.pricedev.ca): “Sync between my devices” on the home screen – link your phone, tablet and laptop once with a pairing code and FLRAs, lift calcs, saved hazards and saved crane configurations stay the same on all of them. No sign-in; everything is encrypted on the device before it is uploaded'],1],
+['3.56',['Sync is now in this test app itself (test.pricedev.ca); the separate mytest address is retired'],1],
+['3.55',['New: “Sync between my devices” on the home screen – link your phone, tablet and laptop once with a pairing code and FLRAs, lift calcs, saved hazards and saved crane configurations stay the same on all of them. No sign-in; everything is encrypted on the device before it is uploaded'],1],
 ['3.54',['✕ button at the top right of the what\'s new box to close it']],
 ['3.53',['Crane library, from your own load charts: Grove RT765E-2 boom extension deductions (now complete), Grove RT890E 80 ton block weight (now complete), Grove RT760E line pull, boom lengths, blocks and extension deductions'],1],
 ['3.52',['QR scanner: the camera is asked for fresh every time you open the scanner and let go when you close it','If the camera does not start, the scanner now says why and what to change, with an “Ask for the camera again” button. If an iPad blocks the camera, set Settings › Apps › Safari › Camera to Ask','New: “Take a photo of the code instead” – works when the live camera is blocked or shows nothing','The scanner now notices a camera that opened but shows no picture, froze or stopped'],0],
@@ -15349,10 +15350,10 @@ async function checkUpdate(){if(PTR.busy)return;PTR.busy=1;$('#ptr').classList.a
 function updNote(){let u=null;try{u=sessionStorage.getItem('flra.upd');sessionStorage.removeItem('flra.upd')}catch(e){}
   if(u&&u!==BUILD)toast('Updated to '+BN().toLowerCase()+BUILD+' – tap “what\'s new” to see the changes',4000);else if(u)toast('Still on '+BN().toLowerCase()+BUILD+' – try again in a minute',3000)}
 
-/* ---------- personal sync between devices (only on the my*.pricedev.ca apps) ----------
+/* ---------- personal sync between devices (only on test.pricedev.ca and my.pricedev.ca) ----------
    No sign-in: devices share one pairing code (QR). Everything is compressed and encrypted on the device
    (AES-GCM, key derived from the pairing code) before it is uploaded, so the database holds nothing readable. */
-const SYNCON=/^my/.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
+const SYNCON=/^(my|test)\./.test(location.hostname)||(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]sync=1/.test(location.search));
 const SYK='flra.sync.v1',SYB=window.SYNC_BASE||'https://firestore.googleapis.com/v1/projects/pricedev-2d1e9/databases/(default)/documents';
 let syS=null,syBusy=false,syT=0,syKey=null,syVid='',syMsg='',syErr='';
 function syLoad(){try{const o=JSON.parse(localStorage.getItem(SYK));return o&&o.s?o:null}catch(e){return null}}
