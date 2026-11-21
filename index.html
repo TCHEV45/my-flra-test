@@ -12928,8 +12928,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.68';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.71';
 const NOTES=[
+['3.71',['Suncor Mobile Crane SWP: ticking any Complex Criteria box now ticks Lift Class – Complex for you. Clearing them all takes that tick back off','Suncor SWP: the “Capacity Utilization >90%” box ticks itself while the lift plan is over 90%, which also ticks Lift Class – Complex. It comes off again if the lift drops back to 90% or less, unless you ticked it yourself','Suncor SWP: the “If over 80%” checks are hidden while the lift is at or under 80% of chart capacity, and so is the Lift Specialist endorsement on the Sign-offs tab (it stays if the Multi Crane Lift box is ticked). They are left blank on the PDF and picture copy, and come back if the lift goes over 80%','Suncor SWP: “Lift with Highest Utilization” fills itself with the capacity percentage from the lift plan. Type over it and your entry stays','Suncor SWP: the Reference tab no longer shows the lift classification and rigging classification cards, only the Risk Assessment Matrix'],2],
 ['3.68',['Crane library now shows complete cranes only – 17 of them: Liebherr LTM 1055-3.2, 1095-5.1, 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1250-6.1, 1400-7.1, 1450-8.1, 1500-8.1 and 11200-9.1, Grove RT880E, RT890E and RT9130E, Tadano GR-800XL-1 and GR-1000XL-2','Line pull added from the chart books for the LTM 1110-5.1 (10 parts) and LTM 1450-8.1 (22 parts)','Liebherr parts-of-line lists now use the chart book’s ASME B30.5 table for Canada wherever the book prints one: LTM 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1450-8.1 and 1500-8.1 (lower than the EN 13000 figures up to 13 parts). The LTM 1055-3.2, 1095-5.1, 1250-6.1, 1400-7.1 and 11200-9.1 chart books only print an EN 13000 table. Each list now says which table it is','Taken off until their parts-of-line table is added: LTM 1045-3.1, 1070-4.1, 1100-4.1 and 1160-5.1','LTM 1500-8.1 line pull corrected from its chart book, up to 26 parts','Grove and Tadano: the parts of line list shows single line pull x parts of line'],2],
 ['3.66',['Crane library is back in the main app with 21 cranes: Liebherr LTM 1045-3.1, 1055-3.2, 1070-4.1, 1095-5.1, 1100-4.1, 1100-4.2, 1110-5.1, 1130-5.1, 1160-5.1, 1220-5.2, 1250-5.1, 1250-6.1, 1400-7.1, 1450-8.1, 1500-8.1 and 11200-9.1, Grove RT880E, RT890E and RT9130E, Tadano GR-800XL-1 and GR-1000XL-2. Pick the crane, then pick outriggers, counterweight, hook block, boom length and parts of line from its lists. Jib deduction lists are on the Liebherrs only. Gross capacity is always typed in from the load chart','Every fill-in box now opens the normal keyboard instead of the number pad (dates, times and Yes / No / N/A stay as they are)'],2],
 ['3.65',['New: Back up and restore on the home screen. “Save a backup file” puts everything on this device – FLRAs and lift calcs with signatures, saved hazards, saved crane configurations, sites and map pictures – into one file you can keep in Files, Drive or email','“Restore from a backup file” adds a backup back into the app on any device. Nothing already there is removed, and when an FLRA is in both, the newer copy is kept'],0],
@@ -14181,14 +14182,14 @@ sign:()=>{const cr=cur.v.crew||(cur.v.crew=[{},{},{}]);
   <button class="btn sec wide" id="qrBtn">▦ QR code – let another device get a PDF copy</button>`},
 
 ref:()=>{const cl={k:'#111',r:'#dc2626',o:'#f59e0b',g:'#84cc16'},tc={k:'#fff',r:'#fff',o:'#111',g:'#111'};
-  return `<div class="card ref"><h2>Lift classification</h2>
+  return `${cur&&cur.t==='syn'?'':`<div class="card ref"><h2>Lift classification</h2>
   <b>Non-Standard lift criteria</b><ul><li>Any lift where the crane is lifting between 75% and 90% of the respective crane chart.</li><li>Any lift involving two or more cranes where all cranes are lifting at 75%, or less, of the respective crane chart.</li><li>All lifts where ground conditions are questionable.</li><li>All lifts where the weight of the object is not known.</li><li>All lifts involving a Man Basket.</li><li>All lifts being made over people or buildings.</li><li>All crane set ups where outrigger stance is reduced.</li><li>All lifts utilizing 3rd party engineering.</li><li>All lifts within 7 m (23 ft) of energized powerlines.</li></ul>
   <b>Critical lift criteria</b><ul><li>"Engineering Lift Study" lifts involving two or more cranes, where any crane will be lifting above 75% of capacity of the respective crane chart.</li><li>All lifts exceeding 90% of rated chart capacity of the crane.</li><li>Lifts involving three (3) or more cranes.</li><li>Lifts on a floating platform exceeding 80% of crane / platform charts combined.</li><li>Lifts where crane is working on a frozen body of water.</li></ul></div>
   <div class="card ref"><h2>Rigging classification</h2>
   <b>Basic rigging</b><ul><li>Hitches including single vertical leg, choke and baskets up to and including four (4) legs.</li><li>An awareness of the effects of capacity reducing factors such as sling angles, D:d ratio, etc.</li><li>Mechanical lifting devices such as chain falls for leveling loads or transfer to structure only, not to be used as a sole means of support on the hook of a Company lifting device.</li></ul>
   <b>Specialized rigging</b><ul><li>Any multi-point lifting system where the configuration exceeds four (4) points.</li><li>Multi-bar systems of three (3) or more bars.</li><li>Suspended or pinned personnel baskets.</li><li>Plate clamps, beam clamps, rolling blocks, purpose made load connectors such as concrete lifting clutches.</li><li>Rigging hitches beyond basic.</li></ul>
   <b>Critical rigging</b><ul><li>All BTH devices rented from a 3rd party that do not fall into the basic category.</li><li>Equalizer beams, transfer beams, trolleys, cantilever lifting beams, specialized spreader systems with more than two (2) points of attachment below the bar.</li></ul>
-  <p class="note">For controls to rigging classification refer to 5.7.1 of the Hoisting Policy and Practice.</p></div>
+  <p class="note">For controls to rigging classification refer to 5.7.1 of the Hoisting Policy and Practice.</p></div>`}
   <div class="card ref"><h2>Risk Assessment Matrix (RAM)</h2>
   <table class="ramt"><tr><th></th>${['A','B','C','D'].map(s=>`<th style="background:#e4e4e7">${s}</th>`).join('')}</tr>${[1,2,3,4].map(p=>`<tr><th style="background:#e4e4e7">${p}</th>${['A','B','C','D'].map(s=>{const c=RAMC[p+s];return `<td style="background:${cl[c]};color:${tc[c]}">${p}${s}</td>`}).join('')}</tr>`).join('')}</table>
   <p class="note"><b>Potential:</b> 1 Very Likely (requires immediate controls) · 2 Likely · 3 Possible · 4 Unlikely<br><b>Severity:</b> A Critical (requires immediate controls) · B Serious · C Moderate · D Low</p>
@@ -14365,8 +14366,8 @@ function render(keep){
   m.querySelectorAll('[data-slib]').forEach(e=>e.onchange=()=>{const K=e.dataset.slib,old=sLibOf(),x=CRLIB.find(y=>y.id===e.value),was=cur.v[K];cur.v.sLib=e.value;if(x&&(!was||(old&&was===old.name))){cur.v[K]=x.name;if(K==='craneMake'&&(!cur.v.mSize||cur.v.mSize===was))cur.v.mSize=x.name}touch();render(true)});
   m.querySelectorAll('[data-lib]').forEach(e=>e.onchange=()=>{const c=e.dataset.lib,T=SH(),old=libOf(T,c),x=CRLIB.find(y=>y.id===e.value);T['c'+c+'_lib']=e.value;if(x&&(!T['c'+c+'_make']||(old&&T['c'+c+'_make']===old.name)))T['c'+c+'_make']=x.name;touch();render(true)});
   m.querySelectorAll('[data-k]').forEach(e=>e.oninput=()=>{const K=e.dataset.k,T=dvk(K),O=T[K]||'';T[K]=e.value;if(isSyn(cur)){const M={unit:'mUnit',craneMake:'mSize'}[K];if(M&&(!cur.v[M]||cur.v[M]===O))cur.v[M]=e.value}if(/^k\d+_ang$/.test(K))T[K+'Auto']='';if(/^k\d+_(boom|r0|r1|ang)$/.test(K))autoAng(T,parseInt(K.slice(1),10));touch();if(K==='job'&&!isSyn(cur))$('#title').textContent=e.value||(isCalc(cur)?'New lift calc':'New FLRA');if(isSyn(cur)){if(tab==='slift')synRefresh();if(XF[cur.t].keys.test(K))$('#title').textContent=synLab(cur)}if(tab==='calc')refresh()});
-  m.querySelectorAll('[data-seg]').forEach(s=>s.querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=s.dataset.seg,T=dvk(k);T[k]=(T[k]===b.dataset.v&&k!=='units'&&!/cwtU$/.test(k))?'':b.dataset.v;touch();if(/^k\d+_cr$/.test(k)&&!T[k])T[k]=b.dataset.v;if(/^(two|units|ov|q\d+|k\d+_cr)$/.test(k))render(true);else s.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===T[k]))}));
-  m.querySelectorAll('[data-chk]').forEach(b=>b.onclick=()=>{const k=b.dataset.chk;cur.v[k]=cur.v[k]==='1'?'':'1';touch();render(true)});
+  m.querySelectorAll('[data-seg]').forEach(s=>s.querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=s.dataset.seg,T=dvk(k);T[k]=(T[k]===b.dataset.v&&k!=='units'&&!/cwtU$/.test(k))?'':b.dataset.v;if(k==='liftClass'){delete T.cxAuto;delete T.cxPrev}touch();if(/^k\d+_cr$/.test(k)&&!T[k])T[k]=b.dataset.v;if(/^(two|units|ov|q\d+|k\d+_cr)$/.test(k))render(true);else s.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===T[k]))}));
+  m.querySelectorAll('[data-chk]').forEach(b=>b.onclick=()=>{const k=b.dataset.chk;cur.v[k]=cur.v[k]==='1'?'':'1';if(/^complexCriteria_\d+$/.test(k)&&cur.t==='syn'){if(k==='complexCriteria_0')delete cur.v.c90Auto;synCx()}touch();render(true)});
   m.querySelectorAll('[data-arr]').forEach(e=>{const h=()=>{const a=cur.v[e.dataset.arr],i=+e.dataset.i;if(e.dataset.j!=null)a[i].items[+e.dataset.j][e.dataset.f]=e.value;else (a[i]||(a[i]={}))[e.dataset.f]=e.value;if(e.tagName==='SELECT')e.className='ram '+(e.value?'r'+RAMC[e.value]:'');touch()};e.oninput=h;e.onchange=h});
   m.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{cur.v[b.dataset.add].push(b.dataset.add==='haz'?{task:'',items:[{}]}:{});touch();render(true)});
   m.querySelectorAll('[data-csave]').forEach(b=>b.onclick=()=>crSave(+b.dataset.csave));
@@ -14621,7 +14622,7 @@ slift:{sub:'Mobile Crane Operation Safe Work Practice – Syncrude. Appendix A �
   {k:'powerlines',l:'Not within a boom length to powerlines',t:'yn'},
   {k:'windMax',l:'Maximum Permissible Windspeed',t:'num',u:'fps'},
   {k:'spotterReq',l:'Spotter Required',t:'yn',sub:[{k:'spotterName',l:'Spotter Name'}]},
-  {h3:'If over 80% check the following'},
+  {h3:'If over 80% check the following',id:'synO80h',un:'At or under 80% of chart capacity – the over-80% checks are not needed, so they are hidden. They come back if the lift goes over 80%.'},
   {k:'dryRun',l:'Dry Run Completed',t:'yn'},
   {k:'radiusVerified',l:'Radius Verified by Tape/Laser',t:'yn'},
   {k:'lmlGt',l:'LML Capacity > Planned Total Lift Weight',t:'yn'},
@@ -14756,6 +14757,14 @@ function synNew(t){return {id:'L'+Date.now(),updated:Date.now(),t:t,v:XF[t].newV
 function synCalc(v){const g=k=>{const x=n(v[k]);return isFinite(x)?x:NaN},s=a=>{let t=0,any=false;a.forEach(x=>{if(isFinite(x)){t+=x;any=true}});return any?t:NaN};
   const fact=s([g('plannedLoad'),g('contingency')]),total=s([fact,g('mainBlock'),g('auxBlock'),g('auxSheave'),g('jibWeight'),g('riggingWeight')]),cap=g('chartCap');
   const util=total>0&&cap>0?total/cap*100:NaN,line=g('linePull')>0&&g('parts')>0?g('linePull')*g('parts'):NaN;return {fact,total,util,line}}
+/* over-80% items on the lift plan: the five checks, and the Lift Specialist endorsement (paper: "if verification section indicates lift will exceed 80% or more than one crane involved") */
+const SYN80=['dryRun','radiusVerified','lmlGt','lmlMatch','boomClear'];
+const synU80=v=>{const u=synCalc(v).util;return isFinite(u)&&u<=80};
+const synNoLS=v=>synU80(v)&&v.complexCriteria_1!=='1';
+/* Lift Class: ticking any Complex Criteria ticks Complex; clearing them all takes that tick back off (restores what was there) unless the class was picked by hand since */
+function synCx(){const v=cur.v,n=SYN.slift.groups[0].fields.find(f=>f.k==='complexCriteria').o.length;let any=false;for(let i=0;i<n;i++)if(v['complexCriteria_'+i]==='1')any=true;
+  if(any){if(v.liftClass!=='Complex'){v.cxPrev=v.liftClass||'';v.liftClass='Complex';v.cxAuto='1'}}
+  else if(v.cxAuto==='1'){if(v.liftClass==='Complex')v.liftClass=v.cxPrev||'';delete v.cxAuto;delete v.cxPrev}}
 function synPct(p){if(!isFinite(p))return ['','Enter the weights and chart capacity'];
   if(p>100)return ['bad','EXCEEDS chart capacity – do not lift'];
   if(p>90)return ['bad','Over 90% – Complex lift criteria. Over-80% checks and Lift Specialist endorsement required'];
@@ -14763,7 +14772,22 @@ function synPct(p){if(!isFinite(p))return ['','Enter the weights and chart capac
   return ['ok','At or under 80% of chart capacity']}
 function synRefresh(){const r=synCalc(cur.v),set=(id,t)=>{const e=$('#'+id);if(e)e.textContent=t};
   set('synFact',isFinite(r.fact)?fmt(r.fact)+' lbs':'—');set('synTot',isFinite(r.total)?fmt(r.total)+' lbs':'—');set('synLine',isFinite(r.line)?fmt(r.line)+' lbs':'—');
-  const p=$('#synPct');if(p){const c=synPct(r.util);p.className='pct '+c[0];set('synPctV',isFinite(r.util)?fmt(r.util,1)+' %':'—');set('synPctN',c[1])}}
+  const p=$('#synPct');if(p){const c=synPct(r.util);p.className='pct '+c[0];set('synPctV',isFinite(r.util)?fmt(r.util,1)+' %':'—');set('synPctN',c[1])}
+  /* over-80% checks: hidden while the lift is at or under 80% */
+  const u8=synU80(cur.v),oh=$('#synO80h'),on=$('#synO80hn');if(oh)oh.style.display=u8?'none':'';if(on)on.style.display=u8?'':'none';
+  SYN80.forEach(k=>{const e=document.querySelector('[data-seg="'+k+'"]'),q=e&&e.closest('.qsep');if(q)q.style.display=u8?'none':''});
+  /* "Lift with Highest Utilization" fills itself with the capacity percentage while the box is empty or still holds the last auto-fill; anything typed in is left alone */
+  const v=cur.v,hu=isFinite(r.util)?fmt(r.util,1)+' %':'',he=document.querySelector('[data-k="highestUtil"]');
+  if((!v.highestUtil||v.highestUtil===v.hiAuto)&&(v.highestUtil||'')!==hu&&!(he&&document.activeElement===he)){v.highestUtil=hu;v.hiAuto=hu;if(he)he.value=hu;touch()}
+  /* "Capacity Utilization >90%" ticks itself while the lift plan is over 90%, and comes off again when it drops back unless it was ticked by hand. Like any other criterion, that tick sets Lift Class - Complex */
+  const o90=isFinite(r.util)&&r.util>90;let ch=0;
+  if(o90&&v.complexCriteria_0!=='1'){v.complexCriteria_0='1';v.c90Auto='1';ch=1}
+  else if(!o90&&v.c90Auto==='1'){if(v.complexCriteria_0==='1')v.complexCriteria_0='';delete v.c90Auto;ch=1}
+  if(ch){synCx();touch();synCxDom()}}
+/* shows the >90% box and the Lift Class buttons as they now stand, without redrawing the page (the keyboard stays up) */
+function synCxDom(){const v=cur.v,b=document.querySelector('[data-chk="complexCriteria_0"]');
+  if(b){const on=v.complexCriteria_0==='1';b.classList.toggle('on',on);b.textContent=(on?'✓ ':'')+SYN.slift.groups[0].fields.find(f=>f.k==='complexCriteria').o[0]}
+  document.querySelectorAll('[data-seg="liftClass"] button').forEach(x=>x.classList.toggle('on',x.dataset.v===(v.liftClass||'')))}
 /* ---------- crane library picks on the schema forms (Suncor SWP, crane movement) ---------- */
 const WEBN=' – from the manufacturer\'s data sheet online (metric converted to ft-in, rounded up), check against the unit';
 const sLibOf=()=>cur&&cur.v&&CRLIB.find(x=>x.id===cur.v.sLib)||null;
@@ -14786,7 +14810,7 @@ function synPick(k){try{
   return ''}catch(e){return ''}}
 function synF(f,yna){return (f&&f.k?synPick(f.k):'')+synF0(f,yna)}
 function synF0(f,yna){
-  if(f.h3)return `<div class="lab" style="margin-top:14px;font-weight:700;color:var(--acc);text-transform:uppercase">${esc(f.h3)}</div>`;
+  if(f.h3)return (f.un?`<p class="note" id="${f.id}n" style="display:none;margin-top:12px">${esc(f.un)}</p>`:'')+`<div class="lab"${f.id?` id="${f.id}"`:''} style="margin-top:14px;font-weight:700;color:var(--acc);text-transform:uppercase">${esc(f.h3)}</div>`;
   const k=f.k,t=f.t||(yna?'yna':'text'),sub=f.sub?`<div style="margin:0 0 4px 10px;padding-left:10px;border-left:3px solid var(--line)">${f.sub.map(x=>synF(x)).join('')}</div>`:'';
   if(t==='yn'||t==='yna')return `<div class="qsep" style="padding:8px 0"><div class="qt">${f.n?`<b>${f.n}</b> `:''}${esc(f.l)}</div><div class="seg" data-seg="${k}">${(f.o||(t==='yn'?YN:YNA)).map(x=>`<button type="button" data-v="${x}" class="${cur.v[k]===x?'on':''}${x!=='Yes'?' no':''}">${x}</button>`).join('')}</div>${sub}</div>`;
   if(t==='num')return `<label class="num"><span>${esc(f.l)}${f.u?' ('+f.u+')':''}</span><input type="text" data-k="${k}" value="${val(k)}" autocomplete="off"></label>`;
@@ -14803,7 +14827,7 @@ function synF0(f,yna){
 function synSign(){const v=cur.v,X=XF[cur.t];return X.R.map(r=>{let b='';
     if(r.fields)b=r.fields.map(f=>synF(f)).join('');else
     if(r.crew){const cr=v.crew||(v.crew=[{},{},{},{}]);b=cr.map((c,i)=>`<div class="crew"><input type="text" data-arr="crew" data-i="${i}" data-f="name" value="${aval('crew',i,'name')}" placeholder="Name" aria-label="Name ${i+1}" autocomplete="off"><input type="text" data-arr="crew" data-i="${i}" data-f="init" value="${aval('crew',i,'init')}" placeholder="Init." aria-label="Initials ${i+1}" autocomplete="off"><button type="button" data-sig="${i}" aria-label="Signature ${i+1}">${c&&c.sig?`<img src="${c.sig}" alt="signed">`:'Sign'}</button></div>`).join('')+'<button type="button" class="btn sec wide" data-add="crew">＋ Add person</button>'}
-    else{b=r.roles.map((role,i)=>{const k=r.p+i;return `<div class="lab" style="margin-top:10px"><b>${esc(role)}</b></div><div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-k="${k}" value="${val(k)}" placeholder="Print name" aria-label="${esc(role)} name" autocomplete="off"><button type="button" data-sigr="${k}" aria-label="${esc(role)} signature">${v[k+'Sig']?`<img src="${v[k+'Sig']}" alt="signed">`:'Sign'}</button></div>${r.id?`<div class="row">${tx(k+'_id','ID #')}<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label></div>`:''}${r.time?`<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label>`:''}${r.dt?tx(k+'DT','Date/Time (fills in when signed)'):''}`}).join('')}
+    else{b=r.roles.map((role,i)=>{const k=r.p+i;if(k==='sL2'&&cur.t==='syn'&&synNoLS(v))return `<p class="note" style="margin-top:10px"><b>Lift Specialist</b> – endorsement not needed: the lift is at or under 80% of chart capacity and the Multi Crane Lift box is not ticked. This line comes back if either changes.</p>`;return `<div class="lab" style="margin-top:10px"><b>${esc(role)}</b></div><div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-k="${k}" value="${val(k)}" placeholder="Print name" aria-label="${esc(role)} name" autocomplete="off"><button type="button" data-sigr="${k}" aria-label="${esc(role)} signature">${v[k+'Sig']?`<img src="${v[k+'Sig']}" alt="signed">`:'Sign'}</button></div>${r.id?`<div class="row">${tx(k+'_id','ID #')}<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label></div>`:''}${r.time?`<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label>`:''}${r.dt?tx(k+'DT','Date/Time (fills in when signed)'):''}`}).join('')}
     return `<div class="card"><h2>${esc(r.h)}</h2>${r.note?`<p class="note" style="margin-top:0">${esc(r.note)}</p>`:''}${b}</div>`}).join('')
   +`${X.banner?`<div class="banner red">${X.banner}</div>`:''}
   <button class="btn wide" id="pdfBtn">⬇ Save / Share PDF</button>
@@ -14890,12 +14914,12 @@ const SYNP={"p1":{"t":{"liftLocation":[215,498,243],"unit":[588,950,243],"craneM
 function synFlow(G,s,W,z){const ws=String(s||'').replace(/\s+/g,' ').trim().split(' ').filter(Boolean),out=[];let i=0,cur='';
   for(const w of ws){const t=cur?cur+' '+w:w;if(G.tw(t,z,0)<=W[i])cur=t;else{if(cur){out.push(cur);i++}if(i>=W.length)return null;cur=w;if(G.tw(cur,z,0)>W[i])return null}}
   if(cur)out.push(cur);return out}
-function synRender(G,f){const v=f.v,K=.36,P=SYNP,g=k=>v[k]==null?'':String(v[k]).trim(),num=s=>s!==''&&isFinite(n(s))?fmt(n(s)):s,c=synCalc(v);
+function synRender(G,f){const v=f.v,K=.36,P=SYNP,U8=synU80(v),NL=synNoLS(v),hid=k=>(U8&&SYN80.includes(k))||(NL&&k==='sL2'),g=k=>hid(k)||v[k]==null?'':String(v[k]).trim(),num=s=>s!==''&&isFinite(n(s))?fmt(n(s)):s,c=synCalc(v);
   const T=(s,a,o)=>inkT(G,a[0]*K,a[2]*K,(a[1]-a[0])*K,s,Object.assign({size:9},o||{}));
   const U=(s,a,o)=>T(s,a,Object.assign({center:1},o||{}));
   const dbg=!!G.dbg,B=(on,b)=>{if(on||dbg)xbox(G,[b[0]*K,b[1]*K,b[2]*K])};
   const boxes=M=>{for(const k in M){const i=k.indexOf(':'),kk=i<0?k:k.slice(0,i),val=i<0?'1':k.slice(i+1);B(val==='*'?g(kk)!=='':g(kk)===val,M[k])}};
-  const NS=(k,a)=>{const nm=g(k),sig=v[k+'Sig'],w=a[1]-a[0];
+  const NS=(k,a)=>{const nm=g(k),sig=hid(k)?null:v[k+'Sig'],w=a[1]-a[0];
     if(sig){const sw=Math.min(nm?w*.45:w,112),sh=sw/2.73;G.img(sig,(a[1]-sw)*K,(a[2]-sh+4)*K,sw*K,sh*K);if(nm)T(nm,[a[0],a[1]-sw-4,a[2]-4],{size:8.5})}
     else if(nm)T(nm,[a[0],a[1],a[2]-4],{size:8.5})};
   const flow=(s,L,z0)=>{if(!s)return;const W=L.map(a=>(a[1]-a[0])*K);let z=z0||9,ls=null;while(z>=4.5&&!(ls=synFlow(G,s,W,z)))z-=.5;if(!ls){z=4.5;ls=wrapT(G,s,W[W.length-1],z).slice(0,L.length)}ls.forEach((t,i)=>G.text(L[i][0]*K,L[i][2]*K,z,0,INK,null,t))};
