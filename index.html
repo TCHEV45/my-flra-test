@@ -53,6 +53,13 @@ input:focus,textarea:focus,select:focus{outline:2px solid var(--acc);outline-off
 .seg.col button{flex:1 1 100%;text-align:left;padding-left:12px}
 .seg button.on{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
 .seg button.on.no{background:#52525b;border-color:#52525b}
+.tele{display:grid;gap:5px;margin:3px 0 8px}
+.tele button{min-width:0;border:2px solid var(--line);border-radius:8px;padding:9px 0 6px;background:#fff;color:var(--ink);font-family:inherit;line-height:1.1;touch-action:manipulation}
+.tele button b{display:block;font-size:19px;font-weight:700}
+.tele button small{display:inline-block;margin-top:5px;min-width:24px;padding:2px 0;border-radius:11px;background:#e5e7eb;font-size:12px;color:var(--ink)}
+.tele button.on{border-color:var(--acc)}
+.tele button.on small{background:var(--acc);color:#fff}
+.telc{flex:none;border:2px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);font-family:inherit;font-size:14px;padding:5px 14px;touch-action:manipulation}
 button.blk{display:block;width:100%;text-align:left;border:2px solid var(--line);background:#fff;border-radius:8px;padding:10px;font-size:15px;color:var(--ink);margin:6px 0;line-height:1.3}
 button.blk.on{border-color:var(--ok);background:#f0fdf4;font-weight:600}
 .btn{display:inline-block;border:0;border-radius:10px;background:var(--acc);color:#fff;padding:12px 14px;font-size:16px;font-weight:600}
@@ -12928,8 +12935,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.72';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.75';
 const NOTES=[
+['3.75',['Suncor SWP, Liebherr cranes: above “Configuration of Telescopic Boom Sections” there is now a row of numbered section buttons, one for each telescopic section of the crane picked on the form. Tap a section to step it through 0, 46, 92 and 100 % and the box fills in as 92/46/0/0/0 %. Clear puts every section back to 0 and empties the box. The LTM 1500-8.1 and LTM 11200-9.1 ask which boom is on first, and the LTM 11200-9.1 steps through 0, 50 and 100 % as in its chart book. You can still type in the box, and a set-up typed that way shows on the buttons'],2],
 ['3.72',['Suncor SWP: ticking Counterweight – Full now enters the full counterweight in Counterweight Amount – the largest one the crane library lists for the crane picked on the form. Un-ticking Full or ticking Reduced takes it back out. If the box already holds a different number it asks before changing it, and the pick-list is still there'],2],
 ['3.71',['Suncor Mobile Crane SWP: ticking any Complex Criteria box now ticks Lift Class – Complex for you. Clearing them all takes that tick back off','Suncor SWP: the “Capacity Utilization >90%” box ticks itself while the lift plan is over 90%, which also ticks Lift Class – Complex. It comes off again if the lift drops back to 90% or less, unless you ticked it yourself','Suncor SWP: the “If over 80%” checks are hidden while the lift is at or under 80% of chart capacity, and so is the Lift Specialist endorsement on the Sign-offs tab (it stays if the Multi Crane Lift box is ticked). They are left blank on the PDF and picture copy, and come back if the lift goes over 80%','Suncor SWP: “Lift with Highest Utilization” fills itself with the capacity percentage from the lift plan. Type over it and your entry stays','Suncor SWP: the Reference tab no longer shows the lift classification and rigging classification cards, only the Risk Assessment Matrix'],2],
 ['3.68',['Crane library now shows complete cranes only – 17 of them: Liebherr LTM 1055-3.2, 1095-5.1, 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1250-6.1, 1400-7.1, 1450-8.1, 1500-8.1 and 11200-9.1, Grove RT880E, RT890E and RT9130E, Tadano GR-800XL-1 and GR-1000XL-2','Line pull added from the chart books for the LTM 1110-5.1 (10 parts) and LTM 1450-8.1 (22 parts)','Liebherr parts-of-line lists now use the chart book’s ASME B30.5 table for Canada wherever the book prints one: LTM 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1450-8.1 and 1500-8.1 (lower than the EN 13000 figures up to 13 parts). The LTM 1055-3.2, 1095-5.1, 1250-6.1, 1400-7.1 and 11200-9.1 chart books only print an EN 13000 table. Each list now says which table it is','Taken off until their parts-of-line table is added: LTM 1045-3.1, 1070-4.1, 1100-4.1 and 1160-5.1','LTM 1500-8.1 line pull corrected from its chart book, up to 26 parts','Grove and Tadano: the parts of line list shows single line pull x parts of line'],2],
@@ -14034,6 +14042,12 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
 /* Grove and Tadano: line pull for n parts = single line pull x n (owner's rule, 2026-11-21). Parts go up to the biggest block's parts, or enough parts to reach its capacity */
 CRLIB.forEach(x=>{if(!/^(Grove|Tadano)/.test(x.name))return;if(x.line.length===1&&x.line[0]>0&&x.blocks.length){const w=x.line[0],n=Math.min(30,Math.max(...x.blocks.map(b=>Math.max(b[4]||0,Math.ceil((b[1]||0)/w)))));x.line=Array.from({length:n},(_,i)=>w*(i+1))}if(x.line.length>1&&x.line.every((v,i)=>v===x.line[0]*(i+1)))x.lineStd='X'});
 /* crDone = every pick-list filled. Liebherr: a parts-of-line table from the chart book, and stowed jib reductions unless the crane only takes a luffing jib (noJib). Grove/Tadano: line pull is single line pull x parts and jib deductions are typed in by hand (owner's rules, 2026-11-21) */
+/* Liebherr telescopic sections: [number of sections, which boom]. The counts are read from each crane's own chart book or data sheet
+   (the Tele 1..n rows under the load tables, or "telescopic boom with its n extendable telescopic sections" / "1 base section and n telescopic sections").
+   Two entries = the crane has two booms. Pinning positions offered: 0/46/92/100 %; the LTM 11200-9.1 chart book prints 0/50/100 %.
+   Left out: LTM 1045-3.1 (hydromechanical telescoping, no pinning positions), LTM 1055-3.1 and LTM 1100-5.2 (no document on hand). */
+const TELE={'ltm1055-3.2':[[4,'']],'ltm1070-4.1':[[5,'']],'ltm1095-5.1':[[5,'']],'ltm1100-4.1':[[5,'']],'ltm1100-4.2':[[6,'']],'ltm1110-5.1':[[6,'']],'ltm1130-5.1':[[5,'']],'ltm1160-5.1':[[5,'']],'ltm1220-5.2':[[5,'']],'ltm1250-5.1':[[5,'']],'ltm1250-6.1':[[5,'']],'ltm1300-6.1':[[4,'']],'ltm1400-7.1':[[4,'']],'ltm1450-8.1':[[6,'']],'ltm1500-8.1':[[6,'276 ft boom'],[3,'164 ft boom']],'ltm11200-9.1':[[7,'328 ft boom'],[3,'171 ft boom']]};
+CRLIB.forEach(x=>{if(TELE[x.id]){x.tele=TELE[x.id];x.telePct=x.id==='ltm11200-9.1'?[0,50,100]:[0,46,92,100]}});
 const crDone=x=>{const n=v=>Array.isArray(v)&&v.length>0,lb=/^Liebherr/.test(x.name);return n(x.out)&&!!x.trav&&n(x.trav.w)&&n(x.trav.h)&&n(x.cwt)&&x.cwt.every(w=>w[1]>0)&&n(x.line)&&x.line.every(v=>v>0)&&(!lb||x.line.length>1)&&n(x.blocks)&&x.blocks.every(b=>b[1]>0&&b[2]>0)&&n(x.booms)&&(!lb||!!x.noJib||n(x.jibStow))&&!x.gap};
 /* Crane library shown in BOTH apps (main and test): only the complete cranes the owner picked. Every other crane stays in CRLIB above, hidden, until its missing info is filled in - then add its id here. Jib deduction pick-lists are kept for Liebherrs only */
 const LIBIDS=["ltm1055-3.2","ltm1095-5.1","ltm1100-4.2","ltm1110-5.1","ltm1130-5.1","ltm1220-5.2","ltm1250-5.1","ltm1250-6.1","ltm1400-7.1","ltm1450-8.1","ltm1500-8.1","ltm11200-9.1","grove-rt880e","grove-rt890e","grove-rt9130e","tadano-gr-800xl-1","tadano-gr-1000xl-2"];
@@ -14802,11 +14816,31 @@ function synCw(ask){if(!cur||cur.t!=='syn')return;const v=cur.v,mx=synCwMax(),au
   else{if(auto)put('');delete v.cwtAuto}}
 const WEBN=' – from the manufacturer\'s data sheet online (metric converted to ft-in, rounded up), check against the unit';
 const sLibOf=()=>cur&&cur.v&&CRLIB.find(x=>x.id===cur.v.sLib)||null;
+/* Liebherr telescopic sections on the Suncor SWP: a row of numbered buttons, one per section (Tele 1 first). Tapping a section steps its % through the
+   pinning positions and back to 0. The row is written into "Configuration of Telescopic Boom Sections" the way Liebherr writes it: 92/46/0/0/0 %.
+   The box can still be typed in; a set-up typed in that form shows on the buttons. */
+const teleN=L=>{const w=String(cur.v.teleN||'');return (L.tele.find(x=>String(x[0])===w)||L.tele[0])[0]};
+const teleVals=(L,N,t)=>{const a=String((t===undefined?cur.v.teleConfig:t)||'').replace(/%/g,'').trim().split(/\s*\/\s*/);return a.length===N&&a.every(x=>/^\d{1,3}$/.test(x)&&L.telePct.includes(+x))?a.map(Number):null};
+function telePick(L){const N=teleN(L);
+  return `<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:4px"><div class="lab" style="margin:0">Telescopic sections – tap a section to step its %</div><button type="button" class="telc" data-telc aria-label="Clear the telescopic sections">Clear</button></div>`
+    +(L.tele.length>1?`<div class="seg" style="margin-bottom:6px">${L.tele.map(x=>`<button type="button" data-teln="${x[0]}" class="${x[0]===N?'on':''}">${x[0]} sections · ${esc(x[1])}</button>`).join('')}</div>`:'')
+    +`<div class="tele" style="grid-template-columns:repeat(${N},1fr)">${Array.from({length:N},(_,i)=>`<button type="button" data-tele="${i}" data-v="0"><b>0</b><small>${i+1}</small></button>`).join('')}</div>`}
+let teleT='';const teleTint=()=>{if(!teleT){const m=/^#([0-9a-f]{6})$/i.exec(getComputedStyle(document.documentElement).getPropertyValue('--acc').trim()),n=m?parseInt(m[1],16):0x1e3a8a;teleT='rgba('+(n>>16)+','+((n>>8)&255)+','+(n&255)+',.24)'}return teleT};
+function teleDraw(ev){const L=sLibOf(),bs=[...document.querySelectorAll('[data-tele]')];if(!L||!L.tele||!bs.length)return;
+  const a=teleVals(L,bs.length,ev&&ev.target?ev.target.value:undefined)||Array(bs.length).fill(0);
+  bs.forEach((b,i)=>{const x=a[i];b.dataset.v=x;b.firstChild.textContent=x;b.classList.toggle('on',x>0);b.style.backgroundImage=x>0?'linear-gradient(to right,'+teleTint()+' '+x+'%,transparent '+x+'%)':'';b.setAttribute('aria-label','Tele '+(i+1)+', '+x+' percent. Tap to change')})}
+/* Clear: every section back to 0 and the box emptied */
+function teleClear(){if(!cur)return;delete cur.v.teleConfig;const e=document.querySelector('[data-k="teleConfig"]');if(e)e.value='';touch();teleDraw()}
+function teleStep(i){const L=sLibOf(),bs=[...document.querySelectorAll('[data-tele]')];if(!L||!L.tele||!bs.length)return;
+  const p=L.telePct,a=bs.map(b=>+b.dataset.v||0);a[i]=p[(p.indexOf(a[i])+1)%p.length];
+  const s=a.join('/')+' %';cur.v.teleConfig=s;const e=document.querySelector('[data-k="teleConfig"]');if(e)e.value=s;touch();teleDraw()}
+function teleBoom(n){const L=sLibOf();if(!L||!L.tele)return;const old=teleVals(L,teleN(L));cur.v.teleN=String(n);const N=teleN(L);if(old){const a=old.slice(0,N);while(a.length<N)a.push(0);cur.v.teleConfig=a.join('/')+' %'}touch();render(true)}
 function synPick(k){try{
   if(!CRLIB.length||!cur||!isSyn(cur))return '';
   const L=sLibOf(),o=(kk,v)=>{const r={};r[kk]=v;return r};
   if(k==='craneMake'||k==='mvSize')return `<div class="lab">Crane library</div><select data-slib="${k}" aria-label="Crane library"><option value="">— not from library (type everything in) —</option>${libOpts(L)}</select>${L?'<p class="note" style="margin:4px 0 0">'+(L.web?'Numbers for this crane come from the manufacturer\'s data sheet online, not your chart book. Check them against the unit. ':'')+'Pick-lists on this form come from this crane\'s chart book. You can still type your own numbers. Chart capacity is always read off the chart by you.</p>':''}`;
   if(!L)return '';
+  if(k==='teleConfig'&&L.tele)return telePick(L);
   if(k==='cwtAmt'&&L.cwt.length)return pickSel(L.cwt.map(w=>[fmt(w[1])+' lbs'+(w[0]!=null?' ('+w[0]+' t)':''),o('cwtAmt',String(w[1]))]),'Pick counterweight');
   if(k==='mainBlock'){const a=L.blocks.filter(b=>b[3]);return a.length?pickSel([].concat(...a.map(b=>[[bT(b)+' · '+shv(b)+' · '+fmt(b[2])+' lbs',o('mainBlock',String(b[2]))]].concat(b[5]?[[bT(b)+' · '+shv(b)+' + added weight · '+fmt(b[5])+' lbs',o('mainBlock',String(b[5]))]]:[]))),'Pick hook block'):''}
   if(k==='auxBlock'){const a=L.blocks.filter(b=>!b[3]);return a.length?pickSel(a.map(b=>[b[0]+' t · single line hook · '+fmt(b[2])+' lbs',o('auxBlock',String(b[2]))]),'Pick ball / single line hook'):''}
@@ -14845,7 +14879,7 @@ function synSign(){const v=cur.v,X=XF[cur.t];return X.R.map(r=>{let b='';
   <button class="btn sec wide" id="qrBtn">▦ QR code – let another device get a PDF copy</button>`}
 function synV(t){const X=XF[cur.t];if(t==='haz')return V.haz();if(t==='ref')return V.ref();if(t===X.sign)return synSign();const S=X.S[t];if(!S)return '';
   return (cur.t==='mov'&&t===X.tabs[0][0]?linkCard():'')+`<p class="note">${esc(S.sub)}</p>`+S.groups.map(g=>`<div class="card"><h2>${esc(g.h)}</h2>${g.note?`<p class="note" style="margin-top:0">${esc(g.note)}</p>`:''}${g.fields.map(f=>synF(f,g.yna)).join('')}</div>`).join('')}
-function synBind(m){if(tab==='slift')synRefresh()}
+function synBind(m){if(tab==='slift')synRefresh();m.querySelectorAll('[data-tele]').forEach(b=>b.onclick=()=>teleStep(+b.dataset.tele));m.querySelectorAll('[data-telc]').forEach(b=>b.onclick=teleClear);const tc=m.querySelector('[data-k="teleConfig"]');if(tc)tc.addEventListener('input',teleDraw);teleDraw();m.querySelectorAll('[data-teln]').forEach(b=>b.onclick=()=>teleBoom(b.dataset.teln))}
 
 /* ---------- Barnhart On Site Crane Movement FLRA, HSE004D (05/20) Rev.3 ---------- */
 const MOVT=[['vjob','Job'],['vchk','Checklist'],['haz','Hazards'],['ref','Reference'],['vsign','Sign-off']];
