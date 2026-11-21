@@ -12935,8 +12935,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.75';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.78';
 const NOTES=[
+['3.78',['Suncor SWP: “Additional Planning for Preventing Collisions” is now hidden until you tick the new box “Overlapping equipment or Multi Crane Lift”. Ticking Multi Crane Lift in the Complex Criteria ticks it for you. Un-ticking hides the steps again and leaves them blank on the PDF and picture copy. A form that already has answers in that section opens with the box ticked','Suncor SWP sign-offs: the whole “Lift Plan – Verification sign-off” section is now hidden when it is not required – the lift is at or under 80% and neither Multi Crane Lift nor “Overlapping equipment or Multi Crane Lift” is ticked. Before, only the Lift Specialist line hid. It prints blank and comes back if any of that changes','Suncor SWP Movement tab: new box “Crane will be moved on site”. Until it is ticked the move details, the checklist and the Crane Movement sign-off are hidden and print blank. A form that already has movement answers opens with the box ticked','Suncor SWP sign-offs: the Init. boxes beside the names are gone – print the name and sign','Crane library: the LTM 1095-5.1 has a third outrigger stance to pick, 8.2\' x 24.1\', as in its chart book'],2],
 ['3.75',['Suncor SWP, Liebherr cranes: above “Configuration of Telescopic Boom Sections” there is now a row of numbered section buttons, one for each telescopic section of the crane picked on the form. Tap a section to step it through 0, 46, 92 and 100 % and the box fills in as 92/46/0/0/0 %. Clear puts every section back to 0 and empties the box. The LTM 1500-8.1 and LTM 11200-9.1 ask which boom is on first, and the LTM 11200-9.1 steps through 0, 50 and 100 % as in its chart book. You can still type in the box, and a set-up typed that way shows on the buttons'],2],
 ['3.72',['Suncor SWP: ticking Counterweight – Full now enters the full counterweight in Counterweight Amount – the largest one the crane library lists for the crane picked on the form. Un-ticking Full or ticking Reduced takes it back out. If the box already holds a different number it asks before changing it, and the pick-list is still there'],2],
 ['3.71',['Suncor Mobile Crane SWP: ticking any Complex Criteria box now ticks Lift Class – Complex for you. Clearing them all takes that tick back off','Suncor SWP: the “Capacity Utilization >90%” box ticks itself while the lift plan is over 90%, which also ticks Lift Class – Complex. It comes off again if the lift drops back to 90% or less, unless you ticked it yourself','Suncor SWP: the “If over 80%” checks are hidden while the lift is at or under 80% of chart capacity, and so is the Lift Specialist endorsement on the Sign-offs tab (it stays if the Multi Crane Lift box is ticked). They are left blank on the PDF and picture copy, and come back if the lift goes over 80%','Suncor SWP: “Lift with Highest Utilization” fills itself with the capacity percentage from the lift plan. Type over it and your entry stays','Suncor SWP: the Reference tab no longer shows the lift classification and rigging classification cards, only the Risk Assessment Matrix'],2],
@@ -13148,7 +13149,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   jibStow:[1896,1433,1147,970,838,728,640,573,529,485,441,419],
   jibErect:[['K-31 ft on jib head, rest stowed',[4917,6461,5358,5358,5358,5358,4256,4256,4256,4035,4035,4035]],['K-52 ft on jib head',[5513,7497,5954,5954,5954,5954,4631,4410,4410,3969,3969,3969]]]},
 {id:'ltm1095-5.1',name:'Liebherr LTM 1095-5.1',cat:'All Terrain – Liebherr',
-  web:1,out:[["Full: 23' wide x 24' long","23' x 24' (full)"],["Reduced: 16'5\" wide x 24' long","16'5\" x 24' (reduced)"]],
+  web:1,out:[["Full: 23' wide x 24' long","23' x 24' (full)"],["Reduced: 16'5\" wide x 24' long","16'5\" x 24' (reduced)"],["8.2' wide x 24.1' long","8.2' x 24.1'"]],
   trav:{"w":[["9'9\" – 525/80 R 25 (20.5 R 25) tyres","9'9\""]],"h":[["13'1\" (12'10\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[0.7,1500],[4.5,9900],[6.4,14100],[9.1,20100],[9.8,21600],[10.5,23200],[11,24200],[11.2,24700],[11.7,25800],[12.4,27300],[13.1,28900],[13.6,30000],[15,33100],[15.5,34200],[16.9,37300],[21.6,47600],[23,50700]],
   line:[12600,25000,37300,49300,61200,72900,84400,95800,107000,118000,128800,139500,150000,160400,170600,180700,190600,200300,210000],lineStd:'E',
@@ -14303,6 +14304,8 @@ function clrPage(){const v=cur.v,T=SH(),m=$('#main'),del=(o,re)=>Object.keys(o).
   m.querySelectorAll('[data-k]').forEach(e=>{const k=e.dataset.k;delete dvk(k)[k]});
   m.querySelectorAll('[data-seg]').forEach(e=>{const k=e.dataset.seg;if(k!=='units')delete dvk(k)[k]});
   m.querySelectorAll('[data-chk]').forEach(e=>{delete v[e.dataset.chk]});
+  if(cur.t==='syn'&&tab==='slift'){SYNCOL.forEach(k=>delete v[k]);delete v.colAuto}
+  if(cur.t==='syn'&&tab==='smove'){Object.keys(v).forEach(k=>{if(/^m(\d+[a-d]?|From|To|Date|Unit|Size|Height|Width|Task)$/.test(k))delete v[k]});v.mvOn=''}
   m.querySelectorAll('[data-sigr]').forEach(e=>{const k=e.dataset.sigr;delete v[k+'Sig'];delete v[k+'Sp'];delete v[k+'Sb']});
   if(tab==='check')Object.keys(v).forEach(k=>{if(/^q\d+(_c|_x)?$/.test(k)&&!/^q(2|3|11)_c$/.test(k))delete v[k]});
   if(tab==='haz')v.haz=[{}];
@@ -14382,7 +14385,7 @@ function render(keep){
   m.querySelectorAll('[data-lib]').forEach(e=>e.onchange=()=>{const c=e.dataset.lib,T=SH(),old=libOf(T,c),x=CRLIB.find(y=>y.id===e.value);T['c'+c+'_lib']=e.value;if(x&&(!T['c'+c+'_make']||(old&&T['c'+c+'_make']===old.name)))T['c'+c+'_make']=x.name;touch();render(true)});
   m.querySelectorAll('[data-k]').forEach(e=>e.oninput=()=>{const K=e.dataset.k,T=dvk(K),O=T[K]||'';T[K]=e.value;if(isSyn(cur)){const M={unit:'mUnit',craneMake:'mSize'}[K];if(M&&(!cur.v[M]||cur.v[M]===O))cur.v[M]=e.value}if(/^k\d+_ang$/.test(K))T[K+'Auto']='';if(/^k\d+_(boom|r0|r1|ang)$/.test(K))autoAng(T,parseInt(K.slice(1),10));touch();if(K==='job'&&!isSyn(cur))$('#title').textContent=e.value||(isCalc(cur)?'New lift calc':'New FLRA');if(isSyn(cur)){if(tab==='slift')synRefresh();if(XF[cur.t].keys.test(K))$('#title').textContent=synLab(cur)}if(tab==='calc')refresh()});
   m.querySelectorAll('[data-seg]').forEach(s=>s.querySelectorAll('button').forEach(b=>b.onclick=()=>{const k=s.dataset.seg,T=dvk(k);T[k]=(T[k]===b.dataset.v&&k!=='units'&&!/cwtU$/.test(k))?'':b.dataset.v;if(k==='liftClass'){delete T.cxAuto;delete T.cxPrev}if(k==='cwt')synCw(1);touch();if(/^k\d+_cr$/.test(k)&&!T[k])T[k]=b.dataset.v;if(/^(two|units|ov|q\d+|k\d+_cr)$/.test(k))render(true);else s.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.v===T[k]))}));
-  m.querySelectorAll('[data-chk]').forEach(b=>b.onclick=()=>{const k=b.dataset.chk;cur.v[k]=cur.v[k]==='1'?'':'1';if(/^complexCriteria_\d+$/.test(k)&&cur.t==='syn'){if(k==='complexCriteria_0')delete cur.v.c90Auto;synCx()}touch();render(true)});
+  m.querySelectorAll('[data-chk]').forEach(b=>b.onclick=()=>{const k=b.dataset.chk;cur.v[k]=(k==='colOn'||k==='mvOn'?synGateOn(k,cur.v):cur.v[k]==='1')?'':'1';if(k==='colOn')delete cur.v.colAuto;if(/^complexCriteria_\d+$/.test(k)&&cur.t==='syn'){if(k==='complexCriteria_0')delete cur.v.c90Auto;if(k==='complexCriteria_1')synMc();synCx()}touch();render(true)});
   m.querySelectorAll('[data-arr]').forEach(e=>{const h=()=>{const a=cur.v[e.dataset.arr],i=+e.dataset.i;if(e.dataset.j!=null)a[i].items[+e.dataset.j][e.dataset.f]=e.value;else (a[i]||(a[i]={}))[e.dataset.f]=e.value;if(e.tagName==='SELECT')e.className='ram '+(e.value?'r'+RAMC[e.value]:'');touch()};e.oninput=h;e.onchange=h});
   m.querySelectorAll('[data-add]').forEach(b=>b.onclick=()=>{cur.v[b.dataset.add].push(b.dataset.add==='haz'?{task:'',items:[{}]}:{});touch();render(true)});
   m.querySelectorAll('[data-csave]').forEach(b=>b.onclick=()=>crSave(+b.dataset.csave));
@@ -14643,7 +14646,7 @@ slift:{sub:'Mobile Crane Operation Safe Work Practice – Syncrude. Appendix A �
   {k:'lmlGt',l:'LML Capacity > Planned Total Lift Weight',t:'yn'},
   {k:'lmlMatch',l:'LML Capacity Matches Load Chart Capacity',t:'yn'},
   {k:'boomClear',l:'Boom Clearance to Obstructions Sufficient',t:'yn'}]},
- {h:'Additional Planning for Preventing Collisions',fields:[
+ {h:'Additional Planning for Preventing Collisions',gate:'colOn',gateLab:'Overlapping equipment or Multi Crane Lift',gateNote:'Only needed when cranes or other lifting equipment work in overlapping areas, or for a Multi Crane Lift. Tick the box to show the steps. Ticking Multi Crane Lift in the Complex Criteria ticks it for you.',fields:[
   {k:'col1',n:'1',l:'Lift Director, Signal Person and Crane Operator from each Lift Crew',t:'yn'},
   {k:'col2',n:'2',l:'Determine if either/any of the cranes can be relocated to be out of each other’s way. (Yes = skip remaining steps, No = go to next step)',t:'yn'},
   {k:'col3',n:'3',l:'Determine the working area of each Crane (e.g., path of Load from start to finish), tail swing of the cranes/lifting equipment up to and including counterweight, A-frame and super-lift attachment.',t:'yn'},
@@ -14719,7 +14722,7 @@ sflra:{sub:'Barnhart Crane Lift FLRA – Appendix "A" for Syncrude Canada. Must 
   {k:'jc6',l:'Any injuries/Incidents/Near Misses?'},
   {k:'fNoDetails',l:'Details for any "NO" answers above',t:'area'},
   {k:'fSupervisor',l:'Supervisor Reporting to'}]}]},
-smove:{sub:'SCL-SH&E-142A Appendix J – Crane/Lifting Equipment Movement Checklist. Escorted: to be prepared by Lead Spotter.',groups:[
+smove:{gate:'mvOn',gateLab:'Crane will be moved on site',gateNote:'Tick this if the crane or lifting equipment will be moved on site. Until then the move details, the checklist and the Crane Movement sign-off stay hidden and print blank.',sub:'SCL-SH&E-142A Appendix J – Crane/Lifting Equipment Movement Checklist. Escorted: to be prepared by Lead Spotter.',groups:[
  {h:'Move Details',fields:[
   {k:'mFrom',l:'Present work area or plant'},{k:'mTo',l:'Destination work area or Plant'},{k:'mDate',l:'Date',t:'date'},
   {k:'mUnit',l:'Crane/Lifting Equipment Unit #'},{k:'mSize',l:'Crane/Lifting Equipment Size'},
@@ -14762,7 +14765,7 @@ const SYNR=[
  {p:'sL',h:'Lift Plan – Verification sign-off',note:'Endorsement required if verification section indicates lift will exceed 80% or more than one crane involved.',roles:['Checklist completed by (Crane Operator)','Relief Operator Briefed Before Handover','Lift Specialist']},
  {p:'sA',h:'Pre-Lift Briefing',note:'All fields discussed during pre-lift briefing.',roles:['Lift Director','Crane Operator 1','Signal Person 1','Rigger 1','Crane Operator 2','Signal Person 2','Rigger 2','Spotter','Lift Crew','Lift Crew','Lift-Related Personnel','Lift-Related Personnel','Lift-Related Personnel']},
  {p:'sE',h:'Pre-Lift Checklist Endorsements',note:'Lift Specialist endorses any "No" in section 1. Permit Receiver endorses any "No" in sections 2-4. The rationale goes on the Pre-Lift tab.',roles:['Lift Specialist (section 1 "No")','Permit Receiver (sections 2-4 "No")']},
- {crew:1,h:'Crane Lift FLRA – Name of Personnel Involved in Lift',note:'Print name and initial, and sign with a finger.'},
+ {crew:1,h:'Crane Lift FLRA – Name of Personnel Involved in Lift',note:'Print name and sign with a finger.'},
  {p:'sB',h:'Crane Lift FLRA – Area for Barnhart Use Only',roles:['Supervisor','HS&E Advisor','Site Manager'],dt:1},
  {p:'sM',h:'Crane Movement Checklist – Sign-off',roles:['Lead Spotter','Second Spotter','Crane/Lifting Equipment Operator','Traffic Control','Other Spotter(s)','Crew Foreman or Job Leader'],id:1}];
 const synRoles=r=>r.roles;
@@ -14774,8 +14777,19 @@ function synCalc(v){const g=k=>{const x=n(v[k]);return isFinite(x)?x:NaN},s=a=>{
   const util=total>0&&cap>0?total/cap*100:NaN,line=g('linePull')>0&&g('parts')>0?g('linePull')*g('parts'):NaN;return {fact,total,util,line}}
 /* over-80% items on the lift plan: the five checks, and the Lift Specialist endorsement (paper: "if verification section indicates lift will exceed 80% or more than one crane involved") */
 const SYN80=['dryRun','radiusVerified','lmlGt','lmlMatch','boomClear'];
+/* "Additional Planning for Preventing Collisions" shows only while the "Overlapping equipment or Multi Crane Lift" box (colOn) is ticked. A form filled in before
+   the box existed that already has answers in that section counts as ticked. Un-ticking keeps the answers but hides them and leaves them blank on the paper copy. */
+const SYNCOL=['col1','col2','col3','col4','col5','col6','ld1','sp1','co1','ld2','sp2','co2'];
+const synColOn=v=>v.colOn==='1'||(v.colOn===undefined&&SYNCOL.some(k=>v[k]!=null&&String(v[k]).trim()!==''));
+/* The Multi Crane Lift box in the Complex Criteria (complexCriteria_1) ticks that box; un-ticking Multi Crane Lift takes the tick back off unless the box was tapped by hand since (colAuto) */
+function synMc(){const v=cur.v;if(v.complexCriteria_1==='1'){if(!synColOn(v)){v.colOn='1';v.colAuto='1'}}else if(v.colAuto==='1'){v.colOn='';delete v.colAuto}}
 const synU80=v=>{const u=synCalc(v).util;return isFinite(u)&&u<=80};
-const synNoLS=v=>synU80(v)&&v.complexCriteria_1!=='1';
+const synNoLS=v=>synU80(v)&&v.complexCriteria_1!=='1'&&!synColOn(v);
+/* Movement tab: everything on it, and the Crane Movement sign-off, shows only while "Crane will be moved on site" (mvOn) is ticked. A form that already has
+   movement answers put in by a person (not the date, unit # and size, which fill themselves) counts as ticked. Hidden answers are kept but print blank. */
+const SYNMV=/^(m\d+[a-d]?|m(From|To|Date|Unit|Size|Height|Width|Task)|sM\d+(_id|_time)?)$/,SYNMVA=/^(m\d+[a-d]?|m(From|To|Height|Width|Task)|sM\d+(Sig|_id|_time)?)$/;
+const synMvOn=v=>v.mvOn==='1'||(v.mvOn===undefined&&Object.keys(v).some(k=>SYNMVA.test(k)&&v[k]!=null&&String(v[k]).trim()!==''));
+const synGateOn=(k,v)=>k==='colOn'?synColOn(v):k==='mvOn'?synMvOn(v):true;
 /* Lift Class: ticking any Complex Criteria ticks Complex; clearing them all takes that tick back off (restores what was there) unless the class was picked by hand since */
 function synCx(){const v=cur.v,n=SYN.slift.groups[0].fields.find(f=>f.k==='complexCriteria').o.length;let any=false;for(let i=0;i<n;i++)if(v['complexCriteria_'+i]==='1')any=true;
   if(any){if(v.liftClass!=='Complex'){v.cxPrev=v.liftClass||'';v.liftClass='Complex';v.cxAuto='1'}}
@@ -14870,15 +14884,17 @@ function synF0(f,yna){
   if(t==='ns')return `<div class="lab">${esc(f.l)}</div><div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-k="${k}" value="${val(k)}" placeholder="Print name" aria-label="${esc(f.l)}" autocomplete="off"><button type="button" data-sigr="${k}" aria-label="Signature">${cur.v[k+'Sig']?`<img src="${cur.v[k+'Sig']}" alt="signed">`:'Sign'}</button></div>`;
   return tx(k,esc(f.l))}
 function synSign(){const v=cur.v,X=XF[cur.t];return X.R.map(r=>{let b='';
+    const off=cur.t==='syn'&&(r.p==='sL'?synNoLS(v):r.p==='sM'?!synMvOn(v):false);
+    if(off)return `<div class="card"><h2>${esc(r.h)}</h2><p class="note" style="margin:0">${r.p==='sL'?'Not needed – the lift is at or under 80% of chart capacity, and neither “Multi Crane Lift” nor “Overlapping equipment or Multi Crane Lift” is ticked on the Lift Plan. This section comes back if any of that changes.':'Not needed – “Crane will be moved on site” is not ticked on the Movement tab.'}</p></div>`;
     if(r.fields)b=r.fields.map(f=>synF(f)).join('');else
-    if(r.crew){const cr=v.crew||(v.crew=[{},{},{},{}]);b=cr.map((c,i)=>`<div class="crew"><input type="text" data-arr="crew" data-i="${i}" data-f="name" value="${aval('crew',i,'name')}" placeholder="Name" aria-label="Name ${i+1}" autocomplete="off"><input type="text" data-arr="crew" data-i="${i}" data-f="init" value="${aval('crew',i,'init')}" placeholder="Init." aria-label="Initials ${i+1}" autocomplete="off"><button type="button" data-sig="${i}" aria-label="Signature ${i+1}">${c&&c.sig?`<img src="${c.sig}" alt="signed">`:'Sign'}</button></div>`).join('')+'<button type="button" class="btn sec wide" data-add="crew">＋ Add person</button>'}
-    else{b=r.roles.map((role,i)=>{const k=r.p+i;if(k==='sL2'&&cur.t==='syn'&&synNoLS(v))return `<p class="note" style="margin-top:10px"><b>Lift Specialist</b> – endorsement not needed: the lift is at or under 80% of chart capacity and the Multi Crane Lift box is not ticked. This line comes back if either changes.</p>`;return `<div class="lab" style="margin-top:10px"><b>${esc(role)}</b></div><div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-k="${k}" value="${val(k)}" placeholder="Print name" aria-label="${esc(role)} name" autocomplete="off"><button type="button" data-sigr="${k}" aria-label="${esc(role)} signature">${v[k+'Sig']?`<img src="${v[k+'Sig']}" alt="signed">`:'Sign'}</button></div>${r.id?`<div class="row">${tx(k+'_id','ID #')}<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label></div>`:''}${r.time?`<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label>`:''}${r.dt?tx(k+'DT','Date/Time (fills in when signed)'):''}`}).join('')}
+    if(r.crew){const cr=v.crew||(v.crew=[{},{},{},{}]);b=cr.map((c,i)=>`<div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-arr="crew" data-i="${i}" data-f="name" value="${aval('crew',i,'name')}" placeholder="Name" aria-label="Name ${i+1}" autocomplete="off"><button type="button" data-sig="${i}" aria-label="Signature ${i+1}">${c&&c.sig?`<img src="${c.sig}" alt="signed">`:'Sign'}</button></div>`).join('')+'<button type="button" class="btn sec wide" data-add="crew">＋ Add person</button>'}
+    else{b=r.roles.map((role,i)=>{const k=r.p+i;return `<div class="lab" style="margin-top:10px"><b>${esc(role)}</b></div><div class="crew" style="grid-template-columns:1fr 112px"><input type="text" data-k="${k}" value="${val(k)}" placeholder="Print name" aria-label="${esc(role)} name" autocomplete="off"><button type="button" data-sigr="${k}" aria-label="${esc(role)} signature">${v[k+'Sig']?`<img src="${v[k+'Sig']}" alt="signed">`:'Sign'}</button></div>${r.id?`<div class="row">${tx(k+'_id','ID #')}<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label></div>`:''}${r.time?`<label class="f"><span>Time</span><input type="time" data-k="${k}_time" value="${val(k+'_time')}"></label>`:''}${r.dt?tx(k+'DT','Date/Time (fills in when signed)'):''}`}).join('')}
     return `<div class="card"><h2>${esc(r.h)}</h2>${r.note?`<p class="note" style="margin-top:0">${esc(r.note)}</p>`:''}${b}</div>`}).join('')
   +`${X.banner?`<div class="banner red">${X.banner}</div>`:''}
   <button class="btn wide" id="pdfBtn">⬇ Save / Share PDF</button>
   <button class="btn sec wide" id="qrBtn">▦ QR code – let another device get a PDF copy</button>`}
 function synV(t){const X=XF[cur.t];if(t==='haz')return V.haz();if(t==='ref')return V.ref();if(t===X.sign)return synSign();const S=X.S[t];if(!S)return '';
-  return (cur.t==='mov'&&t===X.tabs[0][0]?linkCard():'')+`<p class="note">${esc(S.sub)}</p>`+S.groups.map(g=>`<div class="card"><h2>${esc(g.h)}</h2>${g.note?`<p class="note" style="margin-top:0">${esc(g.note)}</p>`:''}${g.fields.map(f=>synF(f,g.yna)).join('')}</div>`).join('')}
+  return (cur.t==='mov'&&t===X.tabs[0][0]?linkCard():'')+`<p class="note">${esc(S.sub)}</p>`+(S.gate?`<div class="card"><div class="seg col" style="margin:0"><button type="button" data-chk="${S.gate}" class="${synGateOn(S.gate,cur.v)?'on':''}">${synGateOn(S.gate,cur.v)?'✓ ':''}${esc(S.gateLab)}</button></div>${synGateOn(S.gate,cur.v)?'':`<p class="note" style="margin:8px 0 0">${esc(S.gateNote)}</p>`}</div>`:'')+(S.gate&&!synGateOn(S.gate,cur.v)?[]:S.groups).map(g=>{const on=!g.gate||synGateOn(g.gate,cur.v);return `<div class="card"><h2>${esc(g.h)}</h2>${g.note?`<p class="note" style="margin-top:0">${esc(g.note)}</p>`:''}${g.gate?`<div class="seg col"><button type="button" data-chk="${g.gate}" class="${on?'on':''}">${on?'✓ ':''}${esc(g.gateLab)}</button></div>${on?'':`<p class="note" style="margin-top:0">${esc(g.gateNote)}</p>`}`:''}${on?g.fields.map(f=>synF(f,g.yna)).join(''):''}</div>`}).join('')}
 function synBind(m){if(tab==='slift')synRefresh();m.querySelectorAll('[data-tele]').forEach(b=>b.onclick=()=>teleStep(+b.dataset.tele));m.querySelectorAll('[data-telc]').forEach(b=>b.onclick=teleClear);const tc=m.querySelector('[data-k="teleConfig"]');if(tc)tc.addEventListener('input',teleDraw);teleDraw();m.querySelectorAll('[data-teln]').forEach(b=>b.onclick=()=>teleBoom(b.dataset.teln))}
 
 /* ---------- Barnhart On Site Crane Movement FLRA, HSE004D (05/20) Rev.3 ---------- */
@@ -14959,7 +14975,7 @@ const SYNP={"p1":{"t":{"liftLocation":[215,498,243],"unit":[588,950,243],"craneM
 function synFlow(G,s,W,z){const ws=String(s||'').replace(/\s+/g,' ').trim().split(' ').filter(Boolean),out=[];let i=0,cur='';
   for(const w of ws){const t=cur?cur+' '+w:w;if(G.tw(t,z,0)<=W[i])cur=t;else{if(cur){out.push(cur);i++}if(i>=W.length)return null;cur=w;if(G.tw(cur,z,0)>W[i])return null}}
   if(cur)out.push(cur);return out}
-function synRender(G,f){const v=f.v,K=.36,P=SYNP,U8=synU80(v),NL=synNoLS(v),hid=k=>(U8&&SYN80.includes(k))||(NL&&k==='sL2'),g=k=>hid(k)||v[k]==null?'':String(v[k]).trim(),num=s=>s!==''&&isFinite(n(s))?fmt(n(s)):s,c=synCalc(v);
+function synRender(G,f){const v=f.v,K=.36,P=SYNP,U8=synU80(v),NL=synNoLS(v),CO=synColOn(v),MV=synMvOn(v),hid=k=>(U8&&SYN80.includes(k))||(NL&&/^sL\d+$/.test(k))||(!CO&&SYNCOL.includes(k))||(!MV&&SYNMV.test(k)),g=k=>hid(k)||v[k]==null?'':String(v[k]).trim(),num=s=>s!==''&&isFinite(n(s))?fmt(n(s)):s,c=synCalc(v);
   const T=(s,a,o)=>inkT(G,a[0]*K,a[2]*K,(a[1]-a[0])*K,s,Object.assign({size:9},o||{}));
   const U=(s,a,o)=>T(s,a,Object.assign({center:1},o||{}));
   const dbg=!!G.dbg,B=(on,b)=>{if(on||dbg)xbox(G,[b[0]*K,b[1]*K,b[2]*K])};
