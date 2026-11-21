@@ -12928,8 +12928,10 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.65';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.68';
 const NOTES=[
+['3.68',['Crane library now shows complete cranes only – 17 of them: Liebherr LTM 1055-3.2, 1095-5.1, 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1250-6.1, 1400-7.1, 1450-8.1, 1500-8.1 and 11200-9.1, Grove RT880E, RT890E and RT9130E, Tadano GR-800XL-1 and GR-1000XL-2','Line pull added from the chart books for the LTM 1110-5.1 (10 parts) and LTM 1450-8.1 (22 parts)','Liebherr parts-of-line lists now use the chart book’s ASME B30.5 table for Canada wherever the book prints one: LTM 1100-4.2, 1110-5.1, 1130-5.1, 1220-5.2, 1250-5.1, 1450-8.1 and 1500-8.1 (lower than the EN 13000 figures up to 13 parts). The LTM 1055-3.2, 1095-5.1, 1250-6.1, 1400-7.1 and 11200-9.1 chart books only print an EN 13000 table. Each list now says which table it is','Taken off until their parts-of-line table is added: LTM 1045-3.1, 1070-4.1, 1100-4.1 and 1160-5.1','LTM 1500-8.1 line pull corrected from its chart book, up to 26 parts','Grove and Tadano: the parts of line list shows single line pull x parts of line'],2],
+['3.66',['Crane library is back in the main app with 21 cranes: Liebherr LTM 1045-3.1, 1055-3.2, 1070-4.1, 1095-5.1, 1100-4.1, 1100-4.2, 1110-5.1, 1130-5.1, 1160-5.1, 1220-5.2, 1250-5.1, 1250-6.1, 1400-7.1, 1450-8.1, 1500-8.1 and 11200-9.1, Grove RT880E, RT890E and RT9130E, Tadano GR-800XL-1 and GR-1000XL-2. Pick the crane, then pick outriggers, counterweight, hook block, boom length and parts of line from its lists. Jib deduction lists are on the Liebherrs only. Gross capacity is always typed in from the load chart','Every fill-in box now opens the normal keyboard instead of the number pad (dates, times and Yes / No / N/A stay as they are)'],2],
 ['3.65',['New: Back up and restore on the home screen. “Save a backup file” puts everything on this device – FLRAs and lift calcs with signatures, saved hazards, saved crane configurations, sites and map pictures – into one file you can keep in Files, Drive or email','“Restore from a backup file” adds a backup back into the app on any device. Nothing already there is removed, and when an FLRA is in both, the newer copy is kept'],0],
 ['3.64',['The “Share this app” QR code and link now always point to the secure address of this app'],0],
 ['3.63',['A device linked before the simpler sync is asked once whether it is your main device or a borrowed one'],0],
@@ -13119,7 +13121,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 20'8\" wide x 24'1\" long","20'8\" x 24'1\" (full)"],["Reduced: 14'9\" wide x 24'1\" long","14'9\" x 24'1\" (reduced)"]],
   trav:{"w":[["8'10\" – 525/80 R 25 (20.5 R 25) tyres","8'10\""]],"h":[["12'4\" (12' lowered) – 525/80 R 25 (20.5 R 25) tyres","12'4\""]]},
   cwt:[[0.6,1300],[4.1,9000],[4.7,10400],[5.5,12100],[7,15400],[12,26500]],
-  line:[9900,19800,29500,39000,48300,57500,66600,75600,84400,92600],
+  line:[9900,19800,29500,39000,48300,57500,66600,75600,84400,92600],lineStd:'E',
   blocks:[[57.4,126500,882,7,14,0],[57.4,126500,706,7,14,0],[46.1,101600,882,5,11,0],[30.2,66600,617,3,7,0],[13.4,29500,430,1,3,0],[4.5,9900,165,0,1,0]],
   booms:[33,46,56,66,79,89,102,112,125,131],
   jibNote:'folding jib at 0° (chart book section 10)',
@@ -13139,7 +13141,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 23' wide x 24' long","23' x 24' (full)"],["Reduced: 16'5\" wide x 24' long","16'5\" x 24' (reduced)"]],
   trav:{"w":[["9'9\" – 525/80 R 25 (20.5 R 25) tyres","9'9\""]],"h":[["13'1\" (12'10\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[0.7,1500],[4.5,9900],[6.4,14100],[9.1,20100],[9.8,21600],[10.5,23200],[11,24200],[11.2,24700],[11.7,25800],[12.4,27300],[13.1,28900],[13.6,30000],[15,33100],[15.5,34200],[16.9,37300],[21.6,47600],[23,50700]],
-  line:[12600,25000,37300,49300,61200,72900,84400,95800,107000,118000,128800,139500,150000,160400,170600,180700,190600,200300,210000],
+  line:[12600,25000,37300,49300,61200,72900,84400,95800,107000,118000,128800,139500,150000,160400,170600,180700,190600,200300,210000],lineStd:'E',
   blocks:[[95.0,209500,1544,9,19,0],[77.4,170600,1103,7,15,0],[58.4,128800,1103,5,11,0],[38.3,84400,992,3,7,0],[16.0,35300,662,1,3,0],[5.7,12600,309,0,1,0]],
   booms:[40.8,54.6,68.3,82.1,95.8,109.6,123.3,137.1,150.8,164.6,178.3,190.3],
   jibNote:'folding jib at 0° (chart book section 10)',
@@ -13159,7 +13161,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 23' wide x 28'3\" long","23' x 28'3\" (full)"],["Reduced: 16'5\" wide x 28'3\" long","16'5\" x 28'3\" (reduced)"]],
   trav:{"w":[["9'6\" – 525/80 R 25 (20.5 R 25) tyres","9'6\""]],"h":[["13'2\" – 525/80 R 25 (20.5 R 25) tyres","13'2\""]]},
   cwt:[[2.5,5500],[3.6,7900],[4,8800],[6,13200],[6.1,13400],[7.5,16500],[7.6,16800],[9.6,21200],[9.7,21400],[11.1,24500],[12.2,26900],[13.2,29100],[13.7,30200],[14.7,32400],[15.7,34600],[17.2,37900],[25.7,56700],[26.7,58900],[28.2,62200]],
-  line:[16400,32500,48400,64100,79500,94700,109600,124400,138900,153200],
+  line:[14900,29900,44900,59800,74800,89800,104700,119700,134700,149600,164600,179600],lineStd:'A',lineEN:[16400,32500,48400,64100,79500,94700,109600,124400,138900,153200,167300,181100],
   blocks:[[82.2,181100,2734,7,12,0],[75.9,167300,1544,5,11,0],[49.7,109600,1544,3,7,0],[22.0,48400,1014,1,3,0],[22.0,48400,551,1,3,0],[7.4,16400,551,0,1,0]],
   booms:[37.6,49.8,62,74.2,86.4,98.7,110.9,123.1,135.3,147.5,156,159.7,170.3,171.9,182.5,184.1,196.8],
   jibNote:'folding jib at 0° (chart book section 10)',
@@ -13179,17 +13181,17 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 23' front / 27'3\" rear wide x 26' long","23' front / 27'3\" rear x 26' (full)"],["Reduced: 16'5\" front / 22'6\" rear wide x 26' long","16'5\" front / 22'6\" rear x 26' (reduced)"]],
   trav:{"w":[["9'4\" – 525/80 R 25 (20.5 R 25) tyres","9'4\""]],"h":[["13'1\" (12'9\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[0.8,1760],[1.1,2425],[3.3,7280],[3.6,7900],[6.9,15200],[7.2,15900],[7.7,17000],[8.5,18750],[8.8,19400],[9.8,21600],[10.6,23370],[10.9,24000],[11,24250],[11.3,24900],[13.1,28900],[13.4,29550],[14.6,32200],[14.9,32850],[16.7,36800],[17,37500],[20.5,45200],[21.8,48100],[22.1,48700],[22.6,49800],[22.9,50500],[24.1,53100],[24.4,53800],[25.1,55100],[25.4,56000],[25.7,56670],[26.2,57770],[26.5,58400],[26.6,58650],[26.9,59300],[27.9,61500],[28.2,62200],[28.7,63280],[29,63950]],
-  line:[16635],
+  line:[15000,29900,44900,59900,74800,89800,104800,119700,134700,149700],lineStd:'A',lineEN:[16400,32500,48400,64100,79500,94700,109600,124400,138900,153200],
   blocks:[[82.2,181250,2740,7,12,0],[75.9,167360,1990,5,11,0],[75.9,167360,1650,5,11,0],[49.7,109600,1550,3,7,0],[49.7,109600,1100,3,7,0],[22.0,48500,1010,1,3,0],[22.0,48500,990,1,3,0],[7.4,16300,550,0,1,0]],
   booms:[37.7,49.9,62.1,64.2,74.3,76.5,86.5,88.6,90.7,98.7,103,110.9,115.2,117.3,123.1,127.4,129.5,135.3,139.6,147.5,153.9,156,159.7,166.1,168.2,170.3,171.9,178.3,182.5,184.1,186.2,190.5,192.6,194.7,196.8],
-  jibNote:'',
-  jibStow:[],
+  jibNote:"folding jib stowed on boom side (chart book 40.50)",
+  jibStow:[2200,1760,1320,1320,1100,1100,880,880,880,880,880,660,660,660,660,660,660,660,660,660,440,440,440,440,440,440,440,440,440,440,440,440,440,440,440],
   jibErect:[]},
 {id:'ltm1130-5.1',name:'Liebherr LTM 1130-5.1',cat:'All Terrain – Liebherr',
   web:1,out:[["Full: 24'7\" wide x 26'6\" long","24'7\" x 26'6\" (full)"],["Reduced: 16'4\" wide x 26'6\" long","16'4\" x 26'6\" (reduced)"]],
   trav:{"w":[["9'4\" – 525/80 R 25 (20.5 R 25) tyres","9'4\""]],"h":[["13'1\" (12'10\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[2.2,4900],[2.9,6400],[3.7,8200],[5.1,11200],[5.9,13000],[6.1,13500],[6.6,14500],[7.4,16300],[8.3,18300],[8.8,19400],[9,19800],[9.8,21600],[10.3,22700],[11.2,24700],[12.7,28000],[16,35300],[18.9,41700],[19.7,43400],[20.2,44600],[22.6,49800],[22.7,50100],[23.2,51200],[25.6,56400],[26.4,58200],[29.3,64600],[39.1,86200],[42,92600]],
-  line:[19500,38700,57600,76200,94500,112600,130400,147900,165200,182200,198900,215400,231700,247700],
+  line:[17800,35600,53400,71200,89000,106800,124600,142400,160200,178000,195800,213600,231400,247700],lineStd:'A',lineEN:[19500,38700,57600,76200,94500,112600,130400,147900,165200,182200,198900,215400,231700,247700],
   blocks:[[112.3,247700,2734,7,14,0],[90.2,198900,1985,5,11,0],[59.1,130400,1544,3,7,0],[26.1,57600,992,1,3,0],[8.8,19500,551,0,1,0]],
   booms:[41.5,55.8,70.1,84.4,98.7,113,127.3,141.5,155.8,165.8,170.1,180.1,184.4,196.8],
   jibNote:'folding jib at 0° (chart book section 10)',
@@ -13209,7 +13211,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 27'3\" wide x 29'3\" long","27'3\" x 29'3\" (full)"],["Reduced: 18'1\" wide x 29'3\" long","18'1\" x 29'3\" (reduced)"]],
   trav:{"w":[["10'3\" – 525/80 R 25 (20.5 R 25) tyres","10'3\""]],"h":[["13'2\" (12'8\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'2\""]]},
   cwt:[[12,26500],[22,48500],[32,70500],[34,75000],[42,92600],[44,97000],[54,119000],[74,163100]],
-  line:[23400,46300,69000,91500,113300,135100,156500,177500,198200,218700,238800,258400,278000,298000],
+  line:[21200,42400,63700,84900,106200,127400,148600,169900,191100,212400,233600,254800,276100],lineStd:'A',lineEN:[23400,46300,69000,91500,113300,135100,156500,177500,198200,218700,238800,258400,278000,298000],
   blocks:[[152,335000,4410,9,16,0],[135,298000,3308,7,14,0],[108.3,238800,2867,5,11,4410],[71,156500,3197,3,7,0],[71,156500,2293,3,7,3010],[31.3,69000,1918,1,3,2480],[10.6,23400,1103,0,1,0]],
   booms:[44,58,72,86,100,114,128,142,157,171,185,197],
   jibNote:'folding jib at 0° (chart book 10.1.2)',
@@ -13219,7 +13221,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 27'3\" wide x 30'6\" long","27'3\" x 30'6\" (full)"],["VarioBase range: 8'9\" - 27'3\" wide x 30'6\" long","8'9\" - 27'3\" x 30'6\" (variobase range)"]],
   trav:{"w":[["10'2\" – 525/80 R 25 (20.5 R 25) tyres","10'2\""]],"h":[["13'1\" (12'9\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[5,11000],[11,24000],[16,35000],[21,46000],[26,57000],[31,68000],[33,73000],[36,79000],[38,84000],[41,90000],[43,95000],[46,101000],[48,106000],[53,117000],[58,128000],[63,139000],[68,150000],[73,161000],[78,172000],[88,194000]],
-  line:[21200,42400,63700,84900,106200,127400,148600,169900,191100,212400,233600,254800,276100],
+  line:[21200,42400,63700,84900,106200,127400,148600,169900,191100,212400,233600,254800,276100],lineStd:'A',lineEN:[23200,46100,68700,90900,112800,134300,155600,176500,197100,217300,237300,257000,276400],
   blocks:[[151.0,332800,7500,12,16,0],[151.0,332800,4410,9,16,0],[134.0,295500,3750,7,14,0],[107.7,237300,3530,5,11,0],[70.6,155600,3200,3,7,0],[31.2,68700,1920,1,3,0],[31.2,68700,1850,1,3,0],[10.5,23200,1100,0,1,0]],
   booms:[42.8,57,71.2,73.6,85.3,99.5,104.4,113.7,127.9,135.2,142,156.2,166,170.3,180.2,184.5,194.4,196.8],
   jibNote:'folding jib stowed on boom side (chart book 40.50)',
@@ -13229,7 +13231,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 27'11\" wide x 29' long","27'11\" x 29' (full)"],["Reduced: 18'4\" wide x 29' long","18'4\" x 29' (reduced)"]],
   trav:{"w":[["9'10\" – 525 tyres not listed for this crane; largest printed (16.00 R 25)","9'10\""]],"h":[["13'1\" (12'8\" lowered) – 525 tyres not listed for this crane; largest printed (16.00 R 25)","13'1\""]]},
   cwt:[[10,22100],[17,37500],[22.5,49600],[35,77200],[47.5,104700],[60,132300],[72.5,159800],[85,187400],[97.5,215000]],
-  line:[23400,46300,69000,91500,113300,135100,156500,177500,198200,218700,238800,258400,278000,298000],
+  line:[23400,46300,69000,91500,113300,135100,156500,177500,198200,218700,238800,258400,278000,298000],lineStd:'E',
   blocks:[[183.3,404200,7497,12,20,0],[176.0,389000,4410,9,19,0],[135.0,298000,3308,7,14,0],[108.3,238800,3197,5,11,4322],[108.3,238800,2867,5,11,4410],[71.0,156500,2293,3,7,3010],[31.3,69000,1918,1,3,2481],[31.3,69000,1852,1,3,2481],[10.6,23400,1103,0,1,0]],
   booms:[51,68,85,102,119,136,153,170,187,204,222,236],
   jibNote:'folding jib at 0° (chart book section 10)',
@@ -13249,7 +13251,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 31'3\" wide x 32'9\" long","31'3\" x 32'9\" (full)"],["Reduced: 22'4\" wide x 32'9\" long","22'4\" x 32'9\" (reduced)"]],
   trav:{"w":[["10'8\" – 525/80 R 25 (20.5 R 25) tyres","10'8\""]],"h":[["13'2\" (12'10\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'2\""]]},
   cwt:[[20,44100],[30,66100],[40,88200],[50,110200],[60,132300],[70,154300],[80,176400],[90,198400],[100,220500],[110,242500],[120,264600],[130,286600],[140,308600]],
-  line:[28000,55600,82700,109400,135800,161800,187200,212500,237200,262000,285700,309300,332700,355800,378300,400600,422600,445000],
+  line:[28000,55600,82700,109400,135800,161800,187200,212500,237200,262000,285700,309300,332700,355800,378300,400600,422600,445000],noJib:1,lineStd:'E',
   blocks:[[240.0,529200,8150,11,22,0],[202.0,445000,7275,9,18,0],[171.6,378300,5950,7,15,7720],[129.6,285700,5070,5,11,0],[84.9,187200,3970,3,7,0],[37.5,82700,3100,1,3,3860],[12.5,28000,1550,0,1,0]],
   booms:[51,67,84,101,118,135,152,169,186,197],
   jibNote:'',
@@ -13259,17 +13261,17 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Full: 31'6\" wide x 34'1\" long","31'6\" x 34'1\" (full)"],["Reduced: 26'1\" wide x 34'1\" long","26'1\" x 34'1\" (reduced)"]],
   trav:{"w":[["10'2\" – 525/80 R 25 (20.5 R 25) tyres","10'2\""]],"h":[["13'1\" (12'10\" lowered) – 525/80 R 25 (20.5 R 25) tyres","13'1\""]]},
   cwt:[[10,22000],[24,52900],[34,75000],[44,97000],[54,119100],[64,141100],[74,163100],[84,185200],[94,207200],[104,229300],[114,251300],[124,273400],[134,295400]],
-  line:[28325],
+  line:[25600,51100,76700,102300,127800,153400,179000,204500,230100,255700,281200,306800,332300,355700,378400,400700,422600,444300,465600,486600,507300,527600],lineStd:'A',lineEN:[28000,55500,82700,109400,135800,161700,187300,212400,237200,261600,285700,309400,332700,355700,378400,400700,422600,444300,465600,486600,507300,527600],
   blocks:[[239.3,527600,8200,11,22,0],[201.5,444300,7300,9,18,0],[171.6,378400,6000,7,15,0],[129.6,285700,5100,5,11,0],[84.9,187300,5700,3,7,0],[84.9,187300,4000,3,7,0],[37.5,82700,3100,1,3,0],[12.7,28000,1500,0,1,0]],
-  booms:[52.7,70,87.4,90.4,99.3,104.7,107.7,122,125.1,128.1,139.4,145.4,156.7,162.8,165.8,174.1,183.1,191.4,200.5,203.5,208.8,217.8,220.8,226.1,235.1,238.2,241.2,243.4,252.5,258.5],
+  booms:[52.7,70,87.4,90.4,99.3,104.7,107.7,122,125.1,128.1,139.4,145.4,156.7,162.8,165.8,174.1,183.1,191.4,200.5,203.5,208.8,217.8,220.8,226.1,235.1,238.2,241.2,243.4,252.5,258.5,260.8,263.7,269.8,275.9,278.9],
   jibNote:'folding jib stowed on boom side (chart book 40.50)',
-  jibStow:[2300,1720,1370,1320,1210,1150,1120,990,970,950,860,840,770,750,730,680,660,640,600,600,570,550,550,530,500,500,500,490,490,460],
+  jibStow:[2300,1720,1370,1320,1210,1150,1120,990,970,950,860,840,770,750,730,680,660,640,600,600,570,550,550,530,500,500,500,490,490,460,460,460,440,440,440],
   jibErect:[]},
 {id:'ltm1500-8.1',name:'Liebherr LTM 1500-8.1',cat:'All Terrain – Liebherr',
   web:1,out:[["Full: 31'6\" wide x 32'10\" long","31'6\" x 32'10\" (full)"]],
   trav:{"w":[["10'8\" – 525/80 R 25 (20.5 R 25) tyres","10'8\""]],"h":[["13'2\" – 525 tyres not listed for this crane; largest printed (14.00 R 25)","13'2\""]]},
   cwt:[[15,33100],[30,66100],[45,99200],[60,132300],[75,165400],[90,198400],[105,231500],[120,264600],[135,297600],[165,363800]],
-  line:[28325],
+  line:[28000,56000,84000,112000,140000,168100,196100,224100,252100,280100,308100,336200,364200,390000,414900,439400,463400,487200,510600,533500,556200,578500,600600,604000,604000,604000],noJib:1,lineStd:'A',lineEN:[30600,60800,90600,119900,148800,177300,205300,233000,260200,286800,313300,339300,364900,390000,414900,439400,463400,487200,510600,533500,556200,578500,600600,604000,604000,604000],
   blocks:[[273.9,604000,10805,13,26,0],[250.0,551250,8159,11,23,0],[231.6,510600,7277,9,19,0],[188.2,414900,5954,7,15,0],[142.1,313300,5072,5,11,0],[93.1,205300,3969,3,7,0],[40.0,88200,3087,1,3,0],[12.5,27500,1544,0,1,0]],
   booms:[53,70,87,104,121,138,155,164,172,189,206,224,241,258,276],
   jibNote:'',
@@ -13279,7 +13281,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   web:1,out:[["Maximum support base: 42'9\" front / 42'9\" rear wide x 42'9\" long","42'9\" front / 42'9\" rear x 42'9\" (maximum support base)"],["Reduced support base (1): 35'2\" front / 32'3\" rear wide x 35'8\" long","35'2\" front / 32'3\" rear x 35'8\" (reduced support base (1))"],["Reduced support base (2): 32'6\" front / 32'3\" rear wide x 37' long","32'6\" front / 32'3\" rear x 37' (reduced support base (2))"]],
   trav:{"w":[["9'11\" – 525 tyres not listed for this crane; largest printed (14.00 R 25)","9'11\""]],"h":[["13'2\" (12'9\" lowered) – 525 tyres not listed for this crane; largest printed (14.00 R 25)","13'2\""]]},
   cwt:[[22,48500],[42,92600],[62,136700],[72,158700],[82,180800],[92,202800],[102,224900],[112,246900],[122,269000],[142,313100],[162,357100],[182,401200],[202,445300]],
-  line:[37000,73400,109400,144600,179500,213600,247400,280700,313500,345700,377400,408800,439600,470000,500000,529300,558500,587100,615100,642900,670200,697100,723600,749800,775600,801000],
+  line:[37000,73400,109400,144600,179500,213600,247400,280700,313500,345700,377400,408800,439600,470000,500000,529300,558500,587100,615100,642900,670200,697100,723600,749800,775600,801000],noJib:1,lineStd:'E',
   blocks:[[363.0,801000,11025,13,26,0],[320.0,705600,10143,11,23,0]],
   booms:[56,60,76,79,95,98,114,117,133,137,152,156,171,175,190,194,213,232,251,271,290,309,328],
   jibNote:'',
@@ -13578,12 +13580,12 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   out:[],
   trav:{"w":[],"h":[]},
   cwt:[[null,1220]],
-  line:[],
-  blocks:[[49.9,110000,1251,5,10,0],[40.8,90000,1001,4,8,0],[4.5,10000,351,0,1,0],[4.5,10000,371,0,1,0]],
-  booms:[],
-  jibNote:"",
-  jibStow:[],
-  jibErect:[]},
+  line:[16800],
+  blocks:[[54.4,120000,1250,5,10,0],[45.4,100000,1000,4,8,0],[45.4,100000,1000,3,6,0],[7.5,16600,350,0,1,0],[7.5,16600,370,0,1,0]],
+  booms:[36,40,50,60,70,80,90,100,110],
+  jibNote:"boom extension deductions from your load chart (sn 221688 / 225804)",
+  jibStow:[0,0,0,0,0,0,0,0,0],
+  jibErect:[["33 ft extension erected (deduct from main boom)",[5080,5080,5080,5080,5080,5080,5080,5080,5080]],["56 ft extension erected (deduct from main boom)",[11330,11330,11330,11330,11330,11330,11330,11330,11330]]]},
 {id:"grove-rt765e-2",
   name:"Grove RT765E-2",
   cat:"Rough Terrain – Grove",
@@ -13594,9 +13596,9 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   line:[16800],
   blocks:[[59.9,132000,1280,-1,0,0],[45.4,100000,992,-1,0,0],[36.3,80000,1071,-1,0,0],[26.3,58000,712,-1,0,0],[9.1,20000,434,-1,0,0],[7.5,16600,355,0,1,0]],
   booms:[36.0,40.0,50.0,60.0,70.0,80.0,90.0,100.0,110.0],
-  jibNote:"boom extension deductions from the product guide",
+  jibNote:"boom extension deductions from your load chart (sn 233393), without block or ball",
   jibStow:[0,0,0,0,0,0,0,0,0],
-  jibErect:[]},
+  jibErect:[["33 ft extension erected (deduct from main boom)",[3850,3850,3850,3850,3850,3850,3850,3850,3850]],["56 ft extension erected (deduct from main boom)",[8620,8620,8620,8620,8620,8620,8620,8620,8620]],["33 ft ext + 20 ft insert erected (deduct from main boom)",[7480,7480,7480,7480,7480,7480,7480,7480,7480]],["56 ft ext + 20 ft insert erected (deduct from main boom)",[13320,13320,13320,13320,13320,13320,13320,13320,13320]],["33 ft ext + 40 ft insert erected (deduct from main boom)",[9990,9990,9990,9990,9990,9990,9990,9990,9990]],["56 ft ext + 40 ft insert erected (deduct from main boom)",[14610,14610,14610,14610,14610,14610,14610,14610,14610]]]},
 {id:"grove-rt865b",
   name:"Grove RT865B",
   cat:"Rough Terrain – Grove",
@@ -13650,14 +13652,14 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   jibStow:[0,0,0,0,0,0,0,0,0,0],
   jibErect:[["33 ft Extension erected (deduct from main boom)",[3700,3700,3700,3700,3700,3700,3700,3700,3700,3700]],["56 ft Extension erected (deduct from main boom)",[7830,7830,7830,7830,7830,7830,7830,7830,7830,7830]],["76 ft erected (deduct from main boom)",[10350,10350,10350,10350,10350,10350,10350,10350,10350,10350]],["96 ft erected (deduct from main boom)",[13300,13300,13300,13300,13300,13300,13300,13300,13300,13300]]]},
 {id:"grove-rt890e",
-  name:"Grove RT890E",gap:"80 USt 5-sheave block weight (printed heavier than the 90 USt block)",
+  name:"Grove RT890E",
   cat:"Rough Terrain – Grove",
   web:1,
   out:[["Full extend: 24' spread","24' (full extend)"],["Mid-Extend: 17'4\" spread","17'4\" (mid-extend)"],["Retracted: 10'4\" spread","10'4\" (retracted)"]],
   trav:{"w":[["11' – 29.5 x 25 tyres","11'"]],"h":[["12'5\" – 29.5 x 25 tyres","12'5\""]]},
   cwt:[[null,22000]],
   line:[16800],
-  blocks:[[81.6,180000,1300,5,10,0],[9.1,20000,568,0,1,0]],
+  blocks:[[72.6,160000,1600,5,10,0],[81.6,180000,1300,5,10,0],[9.1,20000,568,0,1,0]],
   booms:[37.3,50.5,63.7,76.7,89.8,102.8,115.8,128.8,141.7],
   jibNote:"boom extension deductions from the product guide",
   jibStow:[0,0,0,0,0,0,0,0,0],
@@ -13666,7 +13668,7 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   name:"Grove RT9130E",
   cat:"Rough Terrain – Grove",
   web:1,
-  out:[["50% (text note): 19' spread","19' (50% (text note))"]],
+  out:[["100% (fully extended): 27'10\" spread","27'10\" (100%)"],["50%: 19'9\" spread","19'9\" (50%)"],["0% (retracted): 11'8\" spread","11'8\" (0%)"]],
   trav:{"w":[["12'5-1/2\" (largest printed)","12'5-1/2\""]],"h":[["13'8-1/4\"","13'8-1/4\""]]},
   cwt:[[null,40000]],
   line:[16800],
@@ -13987,6 +13989,19 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   jibNote:"",
   jibStow:[],
   jibErect:[]},
+{id:"broderson-ic-200-2c",
+  name:"Broderson IC-200-2C",gap:"outrigger spread, travel size, counterweight, block weight and boom lengths",
+  cat:"Carry Deck – Broderson",
+  web:1,
+  out:[],
+  trav:{"w":[],"h":[]},
+  cwt:[],
+  line:[10000],
+  blocks:[],
+  booms:[],
+  jibNote:"15 ft boom extension: deduct 400 lbs stowed on base boom, 800 lbs in work position (lifting chart)",
+  jibStow:[],
+  jibErect:[]},
 {id:"shuttlelift-5540",
   name:"Shuttlelift 5540",
   cat:"Carry Deck – Shuttlelift",
@@ -14014,9 +14029,15 @@ const CRLIB=[{id:'ltm1045-3.1',name:'Liebherr LTM 1045-3.1',cat:'All Terrain –
   jibStow:[0,0,0,0,0],
   jibErect:[["Jib deployed erected (deduct from main boom)",[500,500,500,500,500]]]}];
 /* main app only gets cranes with every pick-list filled: outriggers, travel width/height, counterweights, line pull, hook blocks with weights, boom lengths, jib weights */
-const crFull=x=>{const n=v=>Array.isArray(v)&&v.length>0;return n(x.out)&&!!x.trav&&n(x.trav.w)&&n(x.trav.h)&&n(x.cwt)&&x.cwt.every(w=>w[1]>0)&&n(x.line)&&x.line.every(v=>v>0)&&n(x.blocks)&&x.blocks.every(b=>b[1]>0&&b[2]>0)&&n(x.booms)&&n(x.jibStow)&&n(x.jibErect)&&!x.gap};
-const MAINLIB=false; /* crane library on the main app. false = none (taken off in main build 3.49). true = only the cranes that pass crFull */
-if(!TESTAPP){const k=MAINLIB?CRLIB.filter(crFull):[];CRLIB.length=0;CRLIB.push(...k)}
+/* Grove and Tadano: line pull for n parts = single line pull x n (owner's rule, 2026-11-21). Parts go up to the biggest block's parts, or enough parts to reach its capacity */
+CRLIB.forEach(x=>{if(!/^(Grove|Tadano)/.test(x.name))return;if(x.line.length===1&&x.line[0]>0&&x.blocks.length){const w=x.line[0],n=Math.min(30,Math.max(...x.blocks.map(b=>Math.max(b[4]||0,Math.ceil((b[1]||0)/w)))));x.line=Array.from({length:n},(_,i)=>w*(i+1))}if(x.line.length>1&&x.line.every((v,i)=>v===x.line[0]*(i+1)))x.lineStd='X'});
+/* crDone = every pick-list filled. Liebherr: a parts-of-line table from the chart book, and stowed jib reductions unless the crane only takes a luffing jib (noJib). Grove/Tadano: line pull is single line pull x parts and jib deductions are typed in by hand (owner's rules, 2026-11-21) */
+const crDone=x=>{const n=v=>Array.isArray(v)&&v.length>0,lb=/^Liebherr/.test(x.name);return n(x.out)&&!!x.trav&&n(x.trav.w)&&n(x.trav.h)&&n(x.cwt)&&x.cwt.every(w=>w[1]>0)&&n(x.line)&&x.line.every(v=>v>0)&&(!lb||x.line.length>1)&&n(x.blocks)&&x.blocks.every(b=>b[1]>0&&b[2]>0)&&n(x.booms)&&(!lb||!!x.noJib||n(x.jibStow))&&!x.gap};
+/* Crane library shown in BOTH apps (main and test): only the complete cranes the owner picked. Every other crane stays in CRLIB above, hidden, until its missing info is filled in - then add its id here. Jib deduction pick-lists are kept for Liebherrs only */
+const LIBIDS=["ltm1055-3.2","ltm1095-5.1","ltm1100-4.2","ltm1110-5.1","ltm1130-5.1","ltm1220-5.2","ltm1250-5.1","ltm1250-6.1","ltm1400-7.1","ltm1450-8.1","ltm1500-8.1","ltm11200-9.1","grove-rt880e","grove-rt890e","grove-rt9130e","tadano-gr-800xl-1","tadano-gr-1000xl-2"];
+const CRALL=CRLIB.length;
+{const k=CRLIB.filter(x=>LIBIDS.includes(x.id)&&crDone(x));k.forEach(x=>{if(!/^Liebherr/.test(x.name)){x.jibStow=[];x.jibErect=[]}});CRLIB.length=0;CRLIB.push(...k)}
+const lnTag=L=>!L?'':L.lineStd==='A'?' (ASME, Canada)':L.lineStd==='E'?' (EN 13000)':L.lineStd==='X'?' (pull x parts)':''; /*LIBEND*/
 const libOpts=L=>{const g={};CRLIB.forEach(x=>{(g[x.cat||'Other']=g[x.cat||'Other']||[]).push(x)});return Object.keys(g).map(c=>`<optgroup label="${esc(c)}">${g[c].map(x=>`<option value="${x.id}"${L&&L.id===x.id?' selected':''}>${esc(x.name)}</option>`).join('')}</optgroup>`).join('')};
 const libOf=(v,c)=>CRLIB.find(x=>x.id===v['c'+c+'_lib'])||null;
 const pickSel=(opts,ph)=>`<select class="pick" data-cpick aria-label="${esc(ph)}"><option value="">▾ ${esc(ph)}</option>${opts.map(o=>`<option value="${esc(JSON.stringify(o[1]))}">${esc(o[0])}</option>`).join('')}</select>`;
@@ -14032,12 +14053,12 @@ function craneCard(c){
   ${tx(p+'make','Crane Make and Model')}
   ${tx(p+'unit','Unit Number')}
   <div class="lab">CWT used</div>${L&&L.cwt.length?pickSel(L.cwt.map(w=>[fmt(w[1])+' lbs'+(w[0]!=null?' ('+w[0]+' t)':''),Object.assign(set('cwt',String(w[1])),set('cwtU','lbs'))]),'Pick counterweight'):''}
-  <div style="display:grid;grid-template-columns:1fr 150px;gap:8px;align-items:start"><input type="text" inputmode="decimal" data-k="${p}cwt" value="${val(p+'cwt')}" autocomplete="off" aria-label="Counterweight used"><div class="seg" style="margin:0" data-seg="${p}cwtU">${['lbs','kg'].map(o=>`<button type="button" data-v="${o}" class="${(SH()[p+'cwtU']||'lbs')===o?'on':''}">${o}</button>`).join('')}</div></div>
+  <div style="display:grid;grid-template-columns:1fr 150px;gap:8px;align-items:start"><input type="text" data-k="${p}cwt" value="${val(p+'cwt')}" autocomplete="off" aria-label="Counterweight used"><div class="seg" style="margin:0" data-seg="${p}cwtU">${['lbs','kg'].map(o=>`<button type="button" data-v="${o}" class="${(SH()[p+'cwtU']||'lbs')===o?'on':''}">${o}</button>`).join('')}</div></div>
   ${tx(p+'op','Operator(s) (print name)')}
   ${seg(p+'out','Crane Outrigger Position (if applicable)',['Half','Full Ext','N/A'])}
   ${tx(p+'mats','Outrigger Mats – indicate mat type')}
   ${seg(p+'on','Hoisting will be on',['Boom','Jib','Luffer'])}
-  <div class="lab">Hoisting Tackle</div>${L?(L.line.length?pickSel(L.line.map((w,i)=>[(i+1)+' part'+(i?'s':'')+' of line – '+fmt(w)+' lbs',Object.assign(set('pts',String(i+1)),set('lcap',fmt(w)+' lbs'))]),'Pick parts of line'):'')+pickSel(L.blocks.filter((b,i)=>b[1]>0&&L.blocks.findIndex(x=>x[1]===b[1]&&x[3]===b[3])===i).map(b=>[bT(b)+' · '+shv(b)+' · cap '+fmt(b[1])+' lbs',set('hcap',fmt(b[1])+' lbs')]),'Pick hook block'):''}
+  <div class="lab">Hoisting Tackle</div>${L?(L.line.length?pickSel(L.line.map((w,i)=>[(i+1)+' part'+(i?'s':'')+' of line – '+fmt(w)+' lbs',Object.assign(set('pts',String(i+1)),set('lcap',fmt(w)+' lbs'))]),'Pick parts of line'+lnTag(L)):'')+pickSel(L.blocks.filter((b,i)=>b[1]>0&&L.blocks.findIndex(x=>x[1]===b[1]&&x[3]===b[3])===i).map(b=>[bT(b)+' · '+shv(b)+' · cap '+fmt(b[1])+' lbs',set('hcap',fmt(b[1])+' lbs')]),'Pick hook block'):''}
   <div class="row3">${tx(p+'pts','Pts of Line')}${tx(p+'lcap','Line Cap')}${tx(p+'hcap','Hook Cap')}</div>
   ${seg(p+'crawl','Crawlers',['N/A','Extended','Retracted'])}
   ${seg(p+'cmats','Crane Mats to be used? (Crawlers)',YN)}
@@ -14109,7 +14130,7 @@ crane:()=>`${sheetBar()}${isCalc(cur)?`<div class="card"><h2>Lift</h2><label cla
   <p class="note" style="margin-top:-4px">For rigging classifications, see the Reference tab.</p>
   ${seg('compRig','Company supplied rigging',YN)}${seg('tpRig','3rd Party supplied rigging',YN)}</div>`,
 
-calc:()=>{if(ci>NC(SH()))ci=NC(SH());const u=SH().units||'lbs',p='k'+ci+'_';const nr=(k,l)=>`<label class="num"><span>${l}</span><input type="text" inputmode="decimal" data-k="${p+k}" value="${val(p+k)}"></label>`;
+calc:()=>{if(ci>NC(SH()))ci=NC(SH());const u=SH().units||'lbs',p='k'+ci+'_';const nr=(k,l)=>`<label class="num"><span>${l}</span><input type="text" data-k="${p+k}" value="${val(p+k)}"></label>`;
   const L=libOf(SH(),SH().two==='Yes'?crOf(SH(),ci):1),ks=(k,v)=>{const o={};o[p+k]=v;return o},bi=L?L.booms.indexOf(parseFloat(SH()[p+'boom'])):-1;
   const pBlock=L?pickSel([].concat(...L.blocks.map(b=>[[bT(b)+' · '+shv(b)+' · '+fmt(b[2])+' lbs',ks('block',libW(b[2],u))]].concat(b[5]?[[bT(b)+' · '+shv(b)+' + added weight · '+fmt(b[5])+' lbs',ks('block',libW(b[5],u))]]:[]))),'Pick hook block ('+L.name+')'):'';
   const pBall=L?pickSel(L.blocks.filter(b=>!b[3]).map(b=>[b[0]+' t · single line hook · '+fmt(b[2])+' lbs',ks('ball',libW(b[2],u))]),'Pick ball / single line hook'):'';
@@ -14123,16 +14144,16 @@ calc:()=>{if(ci>NC(SH()))ci=NC(SH());const u=SH().units||'lbs',p='k'+ci+'_';cons
   <div class="banner">Calculations should be based on given weight and confirmed using the LMI. If there is a large enough discrepancy, a new evaluation should be done!</div>
   ${pBlock}${nr('block','Block Weight')}${pBall}${nr('ball','Ball Weight')}${nr('rig','Rigging Weight')}
   ${pJib}
-  <div class="num two"><span>Jib Weight<br><small style="color:var(--mut)">stowed / erected</small></span><input type="text" inputmode="decimal" data-k="${p}jibS" value="${val(p+'jibS')}" placeholder="stowed" aria-label="Jib weight stowed"><input type="text" inputmode="decimal" data-k="${p}jibE" value="${val(p+'jibE')}" placeholder="erected" aria-label="Jib weight erected"></div>
+  <div class="num two"><span>Jib Weight<br><small style="color:var(--mut)">stowed / erected</small></span><input type="text" data-k="${p}jibS" value="${val(p+'jibS')}" placeholder="stowed" aria-label="Jib weight stowed"><input type="text" data-k="${p}jibE" value="${val(p+'jibE')}" placeholder="erected" aria-label="Jib weight erected"></div>
   ${nr('line','Hoist Line Weight')}
-  <div class="num" style="grid-template-columns:54px 1fr 132px"><span>Other</span><input type="text" style="text-align:left" data-k="${p}otherDesc" value="${val(p+'otherDesc')}" placeholder="specify what" aria-label="Other – specify"><input type="text" inputmode="decimal" data-k="${p}other" value="${val(p+'other')}" aria-label="Other weight"></div>
+  <div class="num" style="grid-template-columns:54px 1fr 132px"><span>Other</span><input type="text" style="text-align:left" data-k="${p}otherDesc" value="${val(p+'otherDesc')}" placeholder="specify what" aria-label="Other – specify"><input type="text" data-k="${p}other" value="${val(p+'other')}" aria-label="Other weight"></div>
   <div class="total"><span>TOTAL LOAD WEIGHT</span><b id="tot">—</b></div></div>
   <div class="card"><h2>Calculation #${ci} – configuration</h2>
   ${pBoom}${tx(p+'boom','Boom Length','e.g. 120 ft')}
   <div class="row">${tx(p+'r0','Initial Radius','e.g. 50 ft')}${tx(p+'r1','Set Radius','e.g. 55 ft')}</div>
   ${tx(p+'ang','Main Boom Angle (calculated – type to override)')}
   <p class="note" id="angn" style="margin-top:-2px"></p>
-  <label class="num"><span><b>Gross Capacity</b> (from chart, ${u})</span><input type="text" inputmode="decimal" data-k="${p}cap" value="${val(p+'cap')}"></label>
+  <label class="num"><span><b>Gross Capacity</b> (from chart, ${u})</span><input type="text" data-k="${p}cap" value="${val(p+'cap')}"></label>
   <div class="pct" id="pct"><small>Capacity Margin – Total Load Weight ÷ Gross Capacity × 100</small><b id="pctv">—</b><small id="pctn"></small></div></div>
   <p class="note">Lift evaluation to be made out for all critical lifts and highest percentage of capacity for all standard and non-standard lifts for the current configuration.</p>
   <button type="button" class="btn sec wide" id="addCalc">＋ Add another lift calc${nSheets(cur.v)>1?' to this sheet':''}</button>${NC(SH())>MINC(SH())&&ci===NC(SH())?`<button type="button" class="btn sec wide" id="rmCalc" style="color:var(--bad);border-color:var(--bad)">Remove Calc #${ci}</button>`:''}<button type="button" class="btn sec wide" id="addSheet">＋ Add another lift calc sheet (own crane setup)</button>${si>0?`<button type="button" class="btn sec wide" id="rmSheet" style="color:var(--bad);border-color:var(--bad)">Remove Sheet ${si+1}</button>`:''}${isCalc(cur)?'<button class="btn wide" id="pdfBtn">⬇ Save / Share PDF</button><button class="btn sec wide" id="qrBtn">▦ QR code – let another device get a PDF copy</button>':''}`},
@@ -14758,7 +14779,7 @@ function synPick(k){try{
   if(k==='jibWeight'&&L.jibStow.length){const bi=L.booms.indexOf(parseFloat(cur.v.boomLen));
     if(bi<0)return '<p class="note" style="margin:2px 0 6px">Pick a Main Boom Length from its list (under Crane Configuration) to get this crane\'s jib weights here.</p>';
     return pickSel([['Stowed on boom side – '+fmt(L.jibStow[bi])+' lbs',o('jibWeight',String(L.jibStow[bi]))]].concat(L.jibErect.filter(r=>r[1][bi]!=null).map(r=>[r[0]+' – '+fmt(r[1][bi])+' lbs',o('jibWeight',String(r[1][bi]))])),'Pick jib weight at T-'+L.booms[bi]+' ft, '+L.jibNote)}
-  if(k==='linePull'&&L.line.length)return pickSel(L.line.map((w,i)=>[(i+1)+' part'+(i?'s':'')+' of line – '+fmt(w)+' lbs max',Object.assign(o('parts',String(i+1)),o('linePull',String(Math.floor(w/(i+1)))))]),'Pick parts of line');
+  if(k==='linePull'&&L.line.length)return pickSel(L.line.map((w,i)=>[(i+1)+' part'+(i?'s':'')+' of line – '+fmt(w)+' lbs max',Object.assign(o('parts',String(i+1)),o('linePull',String(Math.floor(w/(i+1)))))]),'Pick parts of line'+lnTag(L));
   if(k==='outriggerExt'&&L.out&&L.out.length)return pickSel(L.out.map(x=>[x[0],o('outriggerExt',x[1])]),'Pick outrigger stance'+WEBN);
   if((k==='mHeight'||k==='mvHeight')&&L.trav&&L.trav.h.length)return pickSel(L.trav.h.map(x=>[x[0],o(k,x[1])]),'Pick travel height'+WEBN);
   if((k==='mWidth'||k==='mvWidth')&&L.trav&&L.trav.w.length)return pickSel(L.trav.w.map(x=>[x[0],o(k,x[1])]),'Pick travel width'+WEBN);
@@ -14768,7 +14789,7 @@ function synF0(f,yna){
   if(f.h3)return `<div class="lab" style="margin-top:14px;font-weight:700;color:var(--acc);text-transform:uppercase">${esc(f.h3)}</div>`;
   const k=f.k,t=f.t||(yna?'yna':'text'),sub=f.sub?`<div style="margin:0 0 4px 10px;padding-left:10px;border-left:3px solid var(--line)">${f.sub.map(x=>synF(x)).join('')}</div>`:'';
   if(t==='yn'||t==='yna')return `<div class="qsep" style="padding:8px 0"><div class="qt">${f.n?`<b>${f.n}</b> `:''}${esc(f.l)}</div><div class="seg" data-seg="${k}">${(f.o||(t==='yn'?YN:YNA)).map(x=>`<button type="button" data-v="${x}" class="${cur.v[k]===x?'on':''}${x!=='Yes'?' no':''}">${x}</button>`).join('')}</div>${sub}</div>`;
-  if(t==='num')return `<label class="num"><span>${esc(f.l)}${f.u?' ('+f.u+')':''}</span><input type="text" inputmode="decimal" data-k="${k}" value="${val(k)}" autocomplete="off"></label>`;
+  if(t==='num')return `<label class="num"><span>${esc(f.l)}${f.u?' ('+f.u+')':''}</span><input type="text" data-k="${k}" value="${val(k)}" autocomplete="off"></label>`;
   if(t==='out')return `<div class="num"><span>${esc(f.l)}</span><b id="${f.id}" style="text-align:right;padding-right:10px">—</b></div>`;
   if(t==='total')return `<div class="total"><span>TOTAL LIFT WEIGHT (incl. contingencies)</span><b id="synTot">—</b></div>`;
   if(t==='pct')return `<div class="pct" id="synPct"><small>Max. Planned Capacity Utilization – Total Lift Weight ÷ Chart Capacity × 100</small><b id="synPctV">—</b><small id="synPctN"></small></div>`;
