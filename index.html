@@ -12935,8 +12935,9 @@ function findAlignmentPattern(matrix, alignmentPatternQuads, topRight, topLeft, 
 /******/ ])["default"];
 });</script>
 <script>
-const TESTAPP=/*TESTFLAG*/false;const BUILD='3.79';
+const TESTAPP=/*TESTFLAG*/false;const BUILD='3.80';
 const NOTES=[
+['3.80',['Suncor SWP: when “Crane will be moved on site” is not ticked, the Crane Movement Checklist page is now left out of the PDF and the picture copy instead of being added blank'],2],
 ['3.79',['Barnhart Crane Lift FLRA sign-off: the Init. boxes beside the names are gone – print the name and sign. Initials already typed on older FLRAs still print'],2],
 ['3.78',['Suncor SWP: “Additional Planning for Preventing Collisions” is now hidden until you tick the new box “Overlapping equipment or Multi Crane Lift”. Ticking Multi Crane Lift in the Complex Criteria ticks it for you. Un-ticking hides the steps again and leaves them blank on the PDF and picture copy. A form that already has answers in that section opens with the box ticked','Suncor SWP sign-offs: the whole “Lift Plan – Verification sign-off” section is now hidden when it is not required – the lift is at or under 80% and neither Multi Crane Lift nor “Overlapping equipment or Multi Crane Lift” is ticked. Before, only the Lift Specialist line hid. It prints blank and comes back if any of that changes','Suncor SWP Movement tab: new box “Crane will be moved on site”. Until it is ticked the move details, the checklist and the Crane Movement sign-off are hidden and print blank. A form that already has movement answers opens with the box ticked','Suncor SWP sign-offs: the Init. boxes beside the names are gone – print the name and sign','Crane library: the LTM 1095-5.1 has a third outrigger stance to pick, 8.2\' x 24.1\', as in its chart book'],2],
 ['3.75',['Suncor SWP, Liebherr cranes: above “Configuration of Telescopic Boom Sections” there is now a row of numbered section buttons, one for each telescopic section of the crane picked on the form. Tap a section to step it through 0, 46, 92 and 100 % and the box fills in as 92/46/0/0/0 %. Clear puts every section back to 0 and empties the box. The LTM 1500-8.1 and LTM 11200-9.1 ask which boom is on first, and the LTM 11200-9.1 steps through 0, 50 and 100 % as in its chart book. You can still type in the box, and a set-up typed that way shows on the buttons'],2],
@@ -14723,7 +14724,7 @@ sflra:{sub:'Barnhart Crane Lift FLRA – Appendix "A" for Syncrude Canada. Must 
   {k:'jc6',l:'Any injuries/Incidents/Near Misses?'},
   {k:'fNoDetails',l:'Details for any "NO" answers above',t:'area'},
   {k:'fSupervisor',l:'Supervisor Reporting to'}]}]},
-smove:{gate:'mvOn',gateLab:'Crane will be moved on site',gateNote:'Tick this if the crane or lifting equipment will be moved on site. Until then the move details, the checklist and the Crane Movement sign-off stay hidden and print blank.',sub:'SCL-SH&E-142A Appendix J – Crane/Lifting Equipment Movement Checklist. Escorted: to be prepared by Lead Spotter.',groups:[
+smove:{gate:'mvOn',gateLab:'Crane will be moved on site',gateNote:'Tick this if the crane or lifting equipment will be moved on site. Until then the move details, the checklist and the Crane Movement sign-off stay hidden, and the Crane Movement Checklist page is left out of the PDF and picture copy.',sub:'SCL-SH&E-142A Appendix J – Crane/Lifting Equipment Movement Checklist. Escorted: to be prepared by Lead Spotter.',groups:[
  {h:'Move Details',fields:[
   {k:'mFrom',l:'Present work area or plant'},{k:'mTo',l:'Destination work area or Plant'},{k:'mDate',l:'Date',t:'date'},
   {k:'mUnit',l:'Crane/Lifting Equipment Unit #'},{k:'mSize',l:'Crane/Lifting Equipment Size'},
@@ -15018,10 +15019,11 @@ function synRender(G,f){const v=f.v,K=.36,P=SYNP,U8=synU80(v),NL=synNoLS(v),CO=s
     if(p.sig){T(p.init,[col[1]+6,col[1]+66,y1-9],{size:8});const sh=y1-R[r]-4,sw=sh*2.73;G.img(p.sig,(col[2]-sw-6)*K,(R[r]+2)*K,sw*K,sh*K)}else U(p.init,[col[1]+6,col[2]-6,y1-9],{size:8.5})});
   for(const k in M.s){NS(k,M.s[k]);const d=M.dt[k];T(g(k+'DT'),[d[0],d[1],d[2]-4],{size:8})}
   /* page 4 – Appendix J crane movement checklist */
-  M=P.p4;G.page();G.bg(SYNBG[3]);
+  /* the Crane Movement Checklist page is only added when "Crane will be moved on site" is ticked (PDF and picture copy alike) */
+  if(MV){M=P.p4;G.page();G.bg(SYNBG[3]);
   for(const k in M.u)T(g(k),M.u[k]);
   M.q.forEach((k,i)=>mark(M.cx[g(k)],M.qy[i],M.qy[i+1],M.cx));
-  for(const k in M.s){const a=M.s[k];NS(k,[a[0]+4,a[1],a[2]-3]);T(g(k+'_id'),[M.idx[0]+4,M.idx[1],a[2]-7]);T(g(k+'_time'),[M.tmx[0]+4,M.tmx[1],a[2]-7])}
+  for(const k in M.s){const a=M.s[k];NS(k,[a[0]+4,a[1],a[2]-3]);T(g(k+'_id'),[M.idx[0]+4,M.idx[1],a[2]-7]);T(g(k+'_time'),[M.tmx[0]+4,M.tmx[1],a[2]-7])}}
   /* anything that does not fit on the paper pages */
   const cont=t=>{G.page();G.text(36,40,11,1,BLK,null,(TESTAPP?'TEST - ':'')+t);G.text(36,52,7.5,0,BLK,null,'Barnhart Crane Lift FLRA - Appendix "A" for Syncrude Canada'+(g('fDate')?'    Date: '+g('fDate'):'')+(g('fPlant')?'    SCL Plant #: '+g('fPlant'):''))};
   while(left.length){cont('TASKS / HAZARDS (continued)');const y2=[];for(let y=84;y<=756;y+=12)y2.push(y);
